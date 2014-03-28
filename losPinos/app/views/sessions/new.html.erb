@@ -1,4 +1,7 @@
 <% provide(:title, "Sign in") %>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
 <h1>Sign in</h1>
 
 <div class="row">
