@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fehca creacion:</strong>
+  <%= @reserva.fehca_creacion %>
+</p>
+
+<p>
+  <strong>Fecha inicio estadia:</strong>
+  <%= @reserva.fecha_inicio_estadia %>
+</p>
+
+<p>
+  <strong>Fecha fin estadia:</strong>
+  <%= @reserva.fecha_fin_estadia %>
+</p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @reserva.monto %>
+</p>
+
+<p>
+  <strong>Moneda:</strong>
+  <%= @reserva.moneda %>
+</p>
+
+<p>
+  <strong>Abonada:</strong>
+  <%= @reserva.abonada %>
+</p>
+
+<p>
+  <strong>Forma de pago:</strong>
+  <%= @reserva.forma_de_pago %>
+</p>
+
+<p>
+  <strong>Tipo reserva:</strong>
+  <%= @reserva.tipo_reserva %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @reserva.cliente %>
+</p>
+
+<p>
+  <strong>Habitacion:</strong>
+  <%= @reserva.habitacion %>
+</p>
+
+<p>
+  <strong>Comentarios:</strong>
+  <%= @reserva.comentarios %>
+</p>
+
+<%= link_to 'Edit', edit_reserva_path(@reserva) %> |
+<%= link_to 'Back', reservas_path %>

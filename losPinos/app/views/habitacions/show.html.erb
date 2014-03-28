@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @habitacion.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @habitacion.descripcion %>
+</p>
+
+<p>
+  <strong>Disponible:</strong>
+  <%= @habitacion.disponible %>
+</p>
+
+<p>
+  <strong>Comentarios:</strong>
+  <%= @habitacion.comentarios %>
+</p>
+
+<p>
+  <strong>Nro camas single:</strong>
+  <%= @habitacion.nro_camas_single %>
+</p>
+
+<p>
+  <strong>Nro camas matrimoniales:</strong>
+  <%= @habitacion.nro_camas_matrimoniales %>
+</p>
+
+<%= link_to 'Edit', edit_habitacion_path(@habitacion) %> |
+<%= link_to 'Back', habitacions_path %>

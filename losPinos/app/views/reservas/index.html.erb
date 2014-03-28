@@ -1,0 +1,47 @@
+<h1>Listing reservas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fehca creacion</th>
+      <th>Fecha inicio estadia</th>
+      <th>Fecha fin estadia</th>
+      <th>Monto</th>
+      <th>Moneda</th>
+      <th>Abonada</th>
+      <th>Forma de pago</th>
+      <th>Tipo reserva</th>
+      <th>Cliente</th>
+      <th>Habitacion</th>
+      <th>Comentarios</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservas.each do |reserva| %>
+      <tr>
+        <td><%= reserva.fehca_creacion %></td>
+        <td><%= reserva.fecha_inicio_estadia %></td>
+        <td><%= reserva.fecha_fin_estadia %></td>
+        <td><%= reserva.monto %></td>
+        <td><%= reserva.moneda %></td>
+        <td><%= reserva.abonada %></td>
+        <td><%= reserva.forma_de_pago %></td>
+        <td><%= reserva.tipo_reserva %></td>
+        <td><%= reserva.cliente %></td>
+        <td><%= reserva.habitacion %></td>
+        <td><%= reserva.comentarios %></td>
+        <td><%= link_to 'Show', reserva %></td>
+        <td><%= link_to 'Edit', edit_reserva_path(reserva) %></td>
+        <td><%= link_to 'Destroy', reserva, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reserva', new_reserva_path %>

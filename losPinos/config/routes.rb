@@ -1,4 +1,18 @@
 LosPinos::Application.routes.draw do
+  resources :reservas
+
+  resources :tipo_reservas
+
+  resources :tarjeta
+
+  resources :gastos
+
+  resources :admin_users
+
+  resources :habitacions
+
+  resources :clientes
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

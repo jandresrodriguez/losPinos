@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @cliente.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @cliente.apellido %>
+</p>
+
+<p>
+  <strong>Fecha nac:</strong>
+  <%= @cliente.fecha_nac %>
+</p>
+
+<p>
+  <strong>Nacionalidad:</strong>
+  <%= @cliente.nacionalidad %>
+</p>
+
+<p>
+  <strong>Documento:</strong>
+  <%= @cliente.documento %>
+</p>
+
+<p>
+  <strong>Documento tipo:</strong>
+  <%= @cliente.documento_tipo %>
+</p>
+
+<p>
+  <strong>Comentarios:</strong>
+  <%= @cliente.comentarios %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @cliente.email %>
+</p>
+
+<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
+<%= link_to 'Back', clientes_path %>

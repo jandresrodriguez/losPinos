@@ -1,0 +1,41 @@
+<%= form_for(@habitacion) do |f| %>
+  <% if @habitacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@habitacion.errors.count, "error") %> prohibited this habitacion from being saved:</h2>
+
+      <ul>
+      <% @habitacion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :disponible %><br>
+    <%= f.check_box :disponible %>
+  </div>
+  <div class="field">
+    <%= f.label :comentarios %><br>
+    <%= f.text_field :comentarios %>
+  </div>
+  <div class="field">
+    <%= f.label :nro_camas_single %><br>
+    <%= f.number_field :nro_camas_single %>
+  </div>
+  <div class="field">
+    <%= f.label :nro_camas_matrimoniales %><br>
+    <%= f.number_field :nro_camas_matrimoniales %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @tarjetum.nombre %>
+</p>
+
+<p>
+  <strong>Habilitada:</strong>
+  <%= @tarjetum.habilitada %>
+</p>
+
+<p>
+  <strong>Comentarios:</strong>
+  <%= @tarjetum.comentarios %>
+</p>
+
+<%= link_to 'Edit', edit_tarjetum_path(@tarjetum) %> |
+<%= link_to 'Back', tarjeta_path %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: MyString
+  contrasena: MyString
+  nombre: MyString
+  habilitado: false
+  email: MyString
+  nivel: 1
+
+two:
+  usuario: MyString
+  contrasena: MyString
+  nombre: MyString
+  habilitado: false
+  email: MyString
+  nivel: 1

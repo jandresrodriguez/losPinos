@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fehca_creacion: 2014-03-27
+  fecha_inicio_estadia: 2014-03-27
+  fecha_fin_estadia: 2014-03-27
+  monto: 1
+  moneda: MyString
+  abonada: false
+  forma_de_pago: MyString
+  tipo_reserva_id: 
+  cliente_id: 
+  habitacion_id: 
+  comentarios: MyString
+
+two:
+  fehca_creacion: 2014-03-27
+  fecha_inicio_estadia: 2014-03-27
+  fecha_fin_estadia: 2014-03-27
+  monto: 1
+  moneda: MyString
+  abonada: false
+  forma_de_pago: MyString
+  tipo_reserva_id: 
+  cliente_id: 
+  habitacion_id: 
+  comentarios: MyString

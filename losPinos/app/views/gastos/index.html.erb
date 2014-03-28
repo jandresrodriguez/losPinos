@@ -1,0 +1,35 @@
+<h1>Listing gastos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Rubro</th>
+      <th>Monto</th>
+      <th>Moneda</th>
+      <th>Comentarios</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gastos.each do |gasto| %>
+      <tr>
+        <td><%= gasto.fecha %></td>
+        <td><%= gasto.rubro %></td>
+        <td><%= gasto.monto %></td>
+        <td><%= gasto.moneda %></td>
+        <td><%= gasto.comentarios %></td>
+        <td><%= link_to 'Show', gasto %></td>
+        <td><%= link_to 'Edit', edit_gasto_path(gasto) %></td>
+        <td><%= link_to 'Destroy', gasto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gasto', new_gasto_path %>

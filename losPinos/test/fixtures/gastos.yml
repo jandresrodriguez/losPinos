@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2014-03-27
+  rubro: MyString
+  monto: 1.5
+  moneda: MyString
+  comentarios: MyString
+
+two:
+  fecha: 2014-03-27
+  rubro: MyString
+  monto: 1.5
+  moneda: MyString
+  comentarios: MyString
