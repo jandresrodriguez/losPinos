@@ -26,6 +26,9 @@ class ReservasController < ApplicationController
   def create
     @reserva = Reserva.new(reserva_params)
 
+    # Seteo el resto de los parametros
+    @reserva.fehca_creacion = Time.now
+
     respond_to do |format|
       if @reserva.save
         format.html { redirect_to @reserva, notice: 'Reserva was successfully created.' }

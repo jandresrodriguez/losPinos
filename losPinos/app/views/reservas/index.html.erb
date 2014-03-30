@@ -1,9 +1,9 @@
-<h1>Listing reservas</h1>
+<h1>Reservas</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Fehca creacion</th>
+      <th>Fecha creacion</th>
       <th>Fecha inicio estadia</th>
       <th>Fecha fin estadia</th>
       <th>Monto</th>
@@ -34,9 +34,9 @@
         <td><%= reserva.cliente %></td>
         <td><%= reserva.habitacion %></td>
         <td><%= reserva.comentarios %></td>
-        <td><%= link_to 'Show', reserva %></td>
-        <td><%= link_to 'Edit', edit_reserva_path(reserva) %></td>
-        <td><%= link_to 'Destroy', reserva, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', reserva %></td>
+        <td><%= link_to 'Editar', edit_reserva_path(reserva) %></td>
+        <td><%= link_to 'Eliminar', reserva, method: :delete, data: { confirm: 'Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -44,4 +44,4 @@
 
 <br>
 
-<%= link_to 'New Reserva', new_reserva_path %>
+<%= link_to 'Nueva reserva', new_reserva_path %>

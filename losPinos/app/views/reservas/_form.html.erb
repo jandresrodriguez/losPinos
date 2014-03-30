@@ -12,10 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :fehca_creacion %><br>
-    <%= f.date_select :fehca_creacion %>
-  </div>
-  <div class="field">
     <%= f.label :fecha_inicio_estadia %><br>
     <%= f.date_select :fecha_inicio_estadia %>
   </div>
@@ -41,15 +37,16 @@
   </div>
   <div class="field">
     <%= f.label :tipo_reserva_id %><br>
-    <%= f.text_field :tipo_reserva_id %>
+    <%= f.collection_select(:tipo_reserva_id, TipoReserva.all, :id, :nombre) %>
   </div>
   <div class="field">
     <%= f.label :cliente_id %><br>
-    <%= f.text_field :cliente_id %>
+    <% clientes_array = Cliente.all.map { |cliente| ["#{cliente.nombre} #{cliente.apellido}", cliente.id] } %>
+    <%= f.select(:cliente_id, options_for_select(clientes_array)) %>
   </div>
   <div class="field">
     <%= f.label :habitacion_id %><br>
-    <%= f.text_field :habitacion_id %>
+    <%= f.collection_select(:habitacion_id, Habitacion.all, :id, :nombre) %>
   </div>
   <div class="field">
     <%= f.label :comentarios %><br>
