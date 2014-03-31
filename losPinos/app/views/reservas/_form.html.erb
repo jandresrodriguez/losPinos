@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :tipo_reserva_id %><br>
-    <%= f.select(:tipo_reserva_id, options_for_select(TipoReserva.habilitadas)) %>
+    <%= f.select(:tipo_reserva_id, options_for_select(TipoReserva.find(:all, :conditions => {:habilitada => true}))) %>
   </div>
   <div class="field">
     <%= f.label :cliente_id %><br>
