@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 	def create
   	  user = AdminUser.find_by(usuario: params[:session][:usuario].downcase)
   	  if user && (params[:session][:password] == user.contrasena)
-        redirect_to user
+        redirect_to '/home'
   	  else
       # Create an error message and re-render the signin form.
       	flash[:error] = 'Invalid email/password combination' # Not quite right!
