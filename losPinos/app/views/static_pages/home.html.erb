@@ -3,3 +3,9 @@
 <li>
 	<ul>Cantida de reservas: <%= Reserva.count %></ul>
 </li>
+
+<%= select_month(Date.today, field_name: 'Mes') %>
+
+
+
+<%= select_year(Date.today, :start_year => 2000, :end_year => Date.today.year + 8, field_name: 'Anio') %>

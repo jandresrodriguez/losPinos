@@ -1,7 +1,7 @@
 LosPinos::Application.routes.draw do
 
   # Pantalla principal
-  root 'static_pages#index'
+  root 'sessions#new'
 
   resources :sessions, only: [:new, :create, :destroy]
 
