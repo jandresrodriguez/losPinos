@@ -19,9 +19,17 @@ LosPinos::Application.routes.draw do
 
   resources :clientes
 
+  controller :sessions do
+    get 'login' => :new
+
+    post 'login' => :create
+
+    delete 'logout' => :destroy
+  end
+
   # Ejemplo de rutas personalizadas
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
+ # match '/signin',  to: 'sessions#new',         via: 'get'
+ # match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/home',  to: 'static_pages#home',         via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
