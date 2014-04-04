@@ -9,3 +9,32 @@
 
 
 <%= select_year(Date.today, :start_year => 2000, :end_year => Date.today.year + 8, field_name: 'Anio') %>
+
+<table class="calendario" cellpadding="10" cellspacing="0">
+	<thead>
+		<tr>
+			<th>Habitación</th>
+			<th>Lunes 1</th>
+			<th>Martes 2</th>
+			<th>Miercoles 3</th>
+			<th>Jueves 4</th>
+			<th>Viernes 5</th>
+			<th>Sabado 6</th>
+			<th>Domingo 7</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% Habitacion.find(:all, :conditions => {:disponible => true}).each do |habitacion|%>
+			<tr>
+				<td class="habitacion"> <%= habitacion.nombre %> </td>
+				<td class="ocupado"></td>
+				<td class="ocupado"></td>
+				<td class="libre"></td>
+				<td class="ocupado"></td>
+				<td class="ocupado"></td>
+				<td class="libre"></td>
+				<td class="libre"></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
