@@ -1,21 +1,74 @@
-<% provide(:title, "Sign in") %>
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
-<h1>Sign in</h1>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
 
-      <%= f.label :usuario %>
-      <%= f.text_field :usuario %>
+<!DOCTYPE html>
+<html class="login-bg">
+<head>
+  <title>Los Pinos Admin - Sign in</title>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <!-- bootstrap -->
+    <%= stylesheet_link_tag "bootstrap" %>
+    <link href="/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+    <!-- global styles -->
+    <%= stylesheet_link_tag "layout" %>
+    <%= stylesheet_link_tag "elements" %>
+    <%= stylesheet_link_tag "icons" %>
 
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-    <% end %>
+    <link rel="stylesheet" type="text/css" href="/assets/css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/elements.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/icons.css" />
 
-  </div>
-</div>
+    <!-- libraries -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/lib/font-awesome.css" />
+    
+    <!-- this page specific styles -->
+    <%= stylesheet_link_tag "signin" %>
+    <link rel="stylesheet" href="/assets/css/compiled/signin.css" type="text/css" media="screen" />
+
+    <!-- open sans font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+    <div class="row-fluid login-wrapper">
+        <a href="index.html">
+          <%= image_tag "img/logo_blanco.png", :class => "logo" %>
+        </a>
+        <div class="span4 box">
+            <div class="content-wrap">
+                <h6 style="color: white;">Log in</h6>
+                <% flash.each do |key, value| %>
+                  <div class="alert alert-<%= key %>"><%= value %></div>
+                <% end %>
+                <%= form_for(:session, url: sessions_path) do |f| %>
+
+                    <%= f.text_field :usuario ,class: 'span12', placeholder: 'Usuario'%>
+
+                    <%= f.password_field :password ,class: 'span12', placeholder: 'Contrasena'%>
+
+                    <%= f.submit "Log in", class: "btn-glow primary login", style: "background: linear-gradient(#2d1d0e, #140907) repeat scroll 0% 0%; border-color:#2d1d0e; " %>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="span4 no-account">
+            <p>Don't have an account?</p>
+            <a href="signup.html">Sign up</a>
+        </div>
+
+
+    </div>
+
+  <!-- scripts -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/theme.js"></script>
+</body>
+</html>

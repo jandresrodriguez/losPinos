@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
-  include SessionsHelper
+
   skip_before_action :authorize, only: [:create, :new]
 	def new
+    render :layout => false
     puts "Entro al new de session"
     if(session[:user_id])
       redirect_to '/home'

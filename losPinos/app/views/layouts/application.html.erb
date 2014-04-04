@@ -11,7 +11,7 @@
 <%= yield %>
 
 <% if session[:user_id] %>
-<%= button_to 'Logout', '/signin', method: :delete %>
+<%= button_to 'Logout', logout_path, method: :delete %>
 <% end %>
 </body>
 </html>
