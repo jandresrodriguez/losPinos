@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   skip_before_action :authorize, only: [:create, :new]
-
+  layout false
   #render :layout => false
 	def new
     if(session[:user_id])
