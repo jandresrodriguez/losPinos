@@ -1,4 +1,168 @@
-<h1>THis is HOME </h1>
+<!-- upper main stats -->
+            <div id="main-stats">
+                <div class="row-fluid stats-row">
+                    <div class="span3 stat">
+                        <div class="data">
+                            <span class="number">5</span>
+                            vacantes
+                        </div>
+                        <span class="date">Habitaciones disponibles</span>
+                    </div>
+                    <div class="span3 stat">
+                        <div class="data">
+                            <span class="number">2</span>
+                            Check-in
+                        </div>
+                        <span class="date">Para el día de hoy</span>
+                    </div>
+                    <div class="span3 stat">
+                        <div class="data">
+                            <span class="number">18</span>
+                            RESERVAS
+                        </div>
+                        <span class="date">Esta semana</span>
+                    </div>
+                    <div class="span3 stat last">
+                        <div class="data">
+                            <span class="number">$2,340</span>
+                            VENTAS
+                        </div>
+                        <span class="date">Últimos 30 días</span>
+                    </div>
+                </div>
+            </div>
+            <!-- end upper main stats -->
+
+            <div id="pad-wrapper">
+
+                <!-- statistics chart built with jQuery Flot -->
+                <div class="row-fluid chart">
+                    <h4>
+                        Estadisticas
+                         <div class="btn-group pull-right">
+                            <button class="glow left">DAY</button>
+                            <button class="glow middle active">MONTH</button>
+                            <button class="glow right">YEAR</button>
+                        </div>
+                    </h4>
+                    <div class="span12">
+                        <div id="statsChart"></div>
+                    </div>
+                </div>
+                <!-- end statistics chart -->
+
+               
+
+                <!-- table sample -->
+                <!-- the script for the toggle all checkboxes from header is located in js/theme.js -->
+                <div class="table-products section">
+                    <div class="row-fluid head">
+                        <div class="span12">
+                            <h4>Reservas 
+                            <small>Ultimas reservas registradas</small>
+                        </h4>
+
+                        </div>
+                    </div>
+
+                    
+                    <div class="row-fluid">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="span2">
+                                    Id
+                                    </th>
+                                    <th class="span2">
+                                    <span class="line"></span>Nombre
+                                    </th>
+                                    <th class="span2">
+                                        <span class="line"></span>Check-in
+                                    </th>
+                                    <th class="span2">
+                                        <span class="line"></span>Check-out
+                                    </th>
+                                    <th class="span2">
+                                        <span class="line"></span>Monto
+                                    </th>
+                                    <th class="span2">
+                                        <span class="line"></span>Estado
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- row -->
+                                <tr class="">
+                                    <td>
+                                        <a href="#">13432423</a>
+                                    </td>
+                                    <td class="">
+                                        Juan Perez
+                                    </td>
+                                    <td class="">                                        
+                                        25-03-2014
+                                    </td>
+                                    <td class="">                                        
+                                        28-03-2014
+                                    </td>
+                                    <td class="">                                        
+                                        $1245
+                                    </td>
+                                    <td>
+                                        <span class="label label-success">Active</span>
+                                        <!-- <ul class="actions">
+                                            <li><i class="table-edit"></i></li>
+                                            <li><i class="table-settings"></i></li>
+                                            <li class="last"><i class="table-delete"></i></li>
+                                        </ul> -->
+                                    </td>
+                                </tr>
+
+                                <tr class="">
+                                    <td>
+                                        <a href="#">54234</a>
+                                    </td>
+                                    <td class="">
+                                        Luis Gonzalez
+                                    </td>
+                                    <td class="">                                        
+                                        25-03-2014
+                                    </td>
+                                    <td class="">                                        
+                                        28-03-2014
+                                    </td>
+                                    <td class="">                                        
+                                        $4322
+                                    </td>
+                                    <td>
+                                        <span class="label label-warning">Cancelada</span>
+                                        <!-- <ul class="actions">
+                                            <li><i class="table-edit"></i></li>
+                                            <li><i class="table-settings"></i></li>
+                                            <li class="last"><i class="table-delete"></i></li>
+                                        </ul> -->
+                                    </td>
+                                </tr>
+                                
+                         
+                                
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                      <ul>
+                        <li><a href="#">&#8249;</a></li>
+                        <li><a class="active" href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">&#8250;</a></li>
+                      </ul>
+                    </div>
+                </div>
+                <!-- end table sample -->
+            </div>
 
 <li>
 	<ul>Cantida de reservas: <%= Reserva.count %></ul>
