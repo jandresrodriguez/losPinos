@@ -27,7 +27,6 @@
     width: 75%; }
   .new-user .form-wrapper input.small {
     width: 30%;
-    margin-top: 20px;
     margin-right: 20px; }
   .new-user .form-wrapper input.last {
     margin-right: 0; }
@@ -40,7 +39,7 @@
   .new-user .form-wrapper textarea {
     height: 88px; }
   .new-user .textarea {
-    margin-top: 27px; }
+    }
     .new-user .textarea span.charactersleft {
       display: block;
       color: #9ba0a5;
