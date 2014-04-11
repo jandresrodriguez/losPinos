@@ -25,6 +25,8 @@ LosPinos::Application.routes.draw do
     post 'login' => :create
 
     delete 'logout' => :destroy
+
+    get 'logout' => :destroy
   end
 
   # Ejemplo de rutas personalizadas

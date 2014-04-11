@@ -4,7 +4,7 @@
 <head>
 	<title>Los Pinos - Home</title>
 	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+      <%= javascript_include_tag :defaults %>
 	  <%= csrf_meta_tags %>
       <%= favicon_link_tag 'icono_pinos.ico' %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -64,11 +64,16 @@
                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle hidden-phone" data-toggle="dropdown">
-                        Nombre usuario
+                        Hi, <% if session[:user_id] %>
+                            <%= session[:usuario] %>
+                        <% end %> 
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="personal-info.html">Cerrar sesión</a></li>
+                        <li><% if session[:user_id] %>
+                                <%= link_to "Cerrar Sesion", logout_path, method: :delete %>
+                            <% end %></li>
+
                         
                     </ul>
                 </li>
@@ -94,9 +99,9 @@
             
             <li>
                 <a class="dropdown-toggle" href="#">
-                    <i class="icon-calendar"></i>
+                    <%= fa_icon "camera-retro" %>
                     <span>Reservas</span>
-                    <i class="icon-chevron-down"></i>
+                    <%= fa_icon "camera-retro" %>
                 </a>
                 <ul class="submenu">
                     <li><a href="user-list.html">Ver reservas</a></li>
@@ -153,11 +158,10 @@
     <div class="content">
         <div class="container-fluid">
     <%= yield %>
+
     	</div>
     </div>
-	<% if session[:user_id] %>
-		<%= button_to 'Logout', logout_path, method: :delete %>
-	<% end %>
+	
 
 	<!-- scripts -->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -258,5 +262,6 @@
             });
         });
     </script>
+    
 </body>
 </html>
