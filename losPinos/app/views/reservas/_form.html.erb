@@ -2,57 +2,57 @@
   <% if @reserva.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@reserva.errors.count, "error") %> prohibited this reserva from being saved:</h2>
-
       <ul>
-      <% @reserva.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @reserva.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :fecha_inicio_estadia %><br>
-    <%= f.date_select :fecha_inicio_estadia %>
+  <div class="span12 field-box">
+      <%= f.label :fecha_inicio_estadia %>
+      <%= f.date_select :fecha_inicio_estadia, start_year:Time.now.year %>
   </div>
-  <div class="field">
-    <%= f.label :fecha_fin_estadia %><br>
-    <%= f.date_select :fecha_fin_estadia %>
+  <div class="span12 field-box">
+    <%= f.label :fecha_fin_estadia %>
+    <%= f.date_select :fecha_fin_estadia, start_year:Time.now.year %>
   </div>
-  <div class="field">
-    <%= f.label :monto %><br>
-    <%= f.number_field :monto %>
+
+  <div class="span12 field-box">
+    <label> Pago </label>
+    <div class="address-fields">
+      <div style="margin-bottom:15px">
+        <%= f.select(:moneda, ['Peso', 'Dolar', 'Euro'], class: "span6") %>
+            <%= f.number_field(:monto, class: "span6", style: "margin-bottom:0px", placeholder: "Monto") %> 
+      </div>
+      <%= f.select(:abonada,  [['Abonada', true],['No abonada'], false]) %>
+            <%= f.select(:forma_de_pago, ['Contado', 'Crédito'], class: "span6") %>
+
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :moneda %><br>
-    <%= f.text_field :moneda %>
-  </div>
-  <div class="field">
-    <%= f.label :abonada %><br>
-    <%= f.check_box :abonada %>
-  </div>
-  <div class="field">
-    <%= f.label :forma_de_pago %><br>
-    <%= f.text_field :forma_de_pago %>
-  </div>
-  <div class="field">
-    <%= f.label :tipo_reserva_id %><br>
+
+  <div class="span12 field-box">
+    <%= f.label :tipo_reserva_id %>
     <%= f.select(:tipo_reserva_id, options_for_select(TipoReserva.find(:all, :conditions => {:habilitada => true}))) %>
   </div>
-  <div class="field">
-    <%= f.label :cliente_id %><br>
+  <div class="span12 field-box">
+    <%= f.label :cliente_id %>
     <% clientes_array = Cliente.all.map { |cliente| ["#{cliente.nombre} #{cliente.apellido}", cliente.id] } %>
     <%= f.select(:cliente_id, options_for_select(clientes_array)) %>
   </div>
-  <div class="field">
-    <%= f.label :habitacion_id %><br>
+  <div class="span12 field-box">
+    <%= f.label :habitacion_id %>
     <%= f.collection_select(:habitacion_id, Habitacion.all, :id, :nombre) %>
   </div>
-  <div class="field">
-    <%= f.label :comentarios %><br>
-    <%= f.text_field :comentarios %>
+  <div class="span12 field-box textarea">
+    <%= f.label :comentarios %>
+    <%= f.text_area :comentarios, class: "span9" %>
+    <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="span11 field-box actions">
+    <%= f.submit "Crear reserva", class: "btn-glow primary" %>
+    <span>OR</span>
+    <input type="reset" value="Cancel" class="reset" />
   </div>
 <% end %>

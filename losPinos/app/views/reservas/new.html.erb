@@ -1,5 +1,16 @@
-<h1>Nueva reserva</h1>
+<div id="pad-wrapper" class="new-user">
+	<div class="row-fluid header">
+		<h3>Crear una nueva Reserva</h3>
+	</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Volver', reservas_path %>
+	<div class="row-fluid form-wrapper">
+		<!-- left column -->
+		<div class="span9 with-sidebar">
+		    <div class="container">
+				
+				<%= render 'form'%>
+				<%= link_to 'Volver', reservas_path %>
+			</div>
+		</div>
+	</div>
+</div>
