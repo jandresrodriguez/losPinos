@@ -1,6 +1,15 @@
-<h1>Editing cliente</h1>
+<div id="pad-wrapper" class="new-user">
+<div class="row-fluid header">
+<h3>Editar Cliente</h3>
+</div>
 
-<%= render 'form' %>
-
+<div class="row-fluid form-wrapper">
+<!-- left column -->
+<div class="span9 with-sidebar">
+    <div class="container">
+        <%= render 'form' %>
+  	<%= link_to 'Back', clientes_path %>
+    </div>
+</div>
 <%= link_to 'Show', @cliente %> |
 <%= link_to 'Back', clientes_path %>

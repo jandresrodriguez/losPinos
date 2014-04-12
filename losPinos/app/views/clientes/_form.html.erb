@@ -10,40 +10,56 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :apellido %><br>
-    <%= f.text_field :apellido %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha_nac %><br>
-    <%= f.date_select :fecha_nac %>
-  </div>
-  <div class="field">
-    <%= f.label :nacionalidad %><br>
-    <%= f.text_field :nacionalidad %>
-  </div>
-  <div class="field">
-    <%= f.label :documento %><br>
-    <%= f.text_field :documento %>
-  </div>
-  <div class="field">
-    <%= f.label :documento_tipo %><br>
-    <%= f.text_field :documento_tipo %>
-  </div>
-  <div class="field">
-    <%= f.label :comentarios %><br>
-    <%= f.text_field :comentarios %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <div class="span12 field-box">
+        <label>Nombre:</label>
+        <%= f.text_field(:nombre, class: "span9") %><br />
+    </div>
+    <div class="span12 field-box">
+        <label>Apellido:</label>
+        <%= f.text_field(:apellido, class: "span9") %><br />
+    </div>
+    <div class="span12 field-box">
+        <label>Fecha de Nacimiento:</label>
+        <%= f.date_select :fecha_nac , start_year: Time.now.year - 110, end_year: Time.now.year%> <br />
+    </div>
+    <div class="span12 field-box">
+        <label>Nacionalidad:</label>
+        <%= f.text_field(:nacionalidad, class: "span9") %><br />
+    </div>
+    <div class="span12 field-box">
+        <label>Email:</label>
+        <%= f.text_field(:email, class: "span9") %><br />
+    </div>
+    <div class="span12 field-box">
+        <label>Telefono:</label>
+        <%= f.text_field(:telefono, class: "span9") %><br />
+    </div>
+    <div class="span12 field-box">
+        <label>Documento:</label>
+        <div class="address-fields">
+          <%= f.text_field(:documento_tipo, class: "span12 small", placeholder: "Tipo Documento") %>
+          <%= f.text_field(:documento, class: "span12 small", placeholder: "Documento") %>
+        </div>
+    </div>
+    <div class="span12 field-box">
+        <label>Direccion:</label>
+        <div class="address-fields">
+            <%= f.text_field(:direccion, class: "span12", style: "margin-bottom: 15px;" , placeholder: "Direccion") %>
+            <%= f.text_field(:ciudad_residencia, class: "span12 small", placeholder: "Ciudad") %>
+            <%= f.text_field(:estado_residencia, class: "span12 small", placeholder: "Estado") %>
+            <%= f.text_field(:pais_residencia, class: "span12 small", placeholder: "Pais") %>
+            <%= f.text_field(:codigo_postal, class: "span12 small last", style: "margin-top: 15px;" , placeholder: "Codigo Postal") %>
+        </div>
+    </div>
+    <div class="span12 field-box textarea">
+        <label>Comentarios:</label>
+        <%= f.text_area(:comentarios, class: "span9") %><br />
+        <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
+    </div>
+    <div class="span11 field-box actions">
+      <%= f.submit "Crear Cliente", class:"btn-glow primary"  %>
+        <span>OR</span>
+        <input type="reset" value="Cancel" class="reset" />
+    </div>
   </div>
 <% end %>

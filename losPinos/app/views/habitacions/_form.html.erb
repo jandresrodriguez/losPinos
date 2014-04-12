@@ -10,32 +10,35 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :descripcion %><br>
-    <%= f.text_area :descripcion %>
-  </div>
-  <div class="field">
-    <%= f.label :disponible %><br>
-    <%= f.check_box :disponible %>
-  </div>
-  <div class="field">
-    <%= f.label :comentarios %><br>
-    <%= f.text_field :comentarios %>
-  </div>
-  <div class="field">
-    <%= f.label :nro_camas_single %><br>
-    <%= f.number_field :nro_camas_single %>
-  </div>
-  <div class="field">
-    <%= f.label :nro_camas_matrimoniales %><br>
-    <%= f.number_field :nro_camas_matrimoniales %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="span12 field-box">
+        <label>Numero:</label>
+        <%= f.text_field(:nombre, class: "span9") %><br />
+    </div>
+    <div class="span12 field-box textarea">
+        <label>Descripcion:</label>
+        <%= f.text_area(:descripcion, class: "span9") %><br />
+        <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
+    </div>
+    <div class="span12 field-box">
+        <label>Disponibilidad:</label>
+        <%= f.select :disponible, [['Disponible', true], ['No Disponible', false]] %> 
+    </div>
+    <div class="span12 field-box">
+        <label>Numero camas singles:</label>
+        <%= f.select :nro_camas_single, (0..10) %> 
+    </div>
+    <div class="span12 field-box">
+        <label>Numero camas dobles:</label>
+        <%= f.select :nro_camas_matrimoniales, (0..10) %> 
+    </div>
+    <div class="span12 field-box textarea">
+        <label>Comentarios:</label>
+        <%= f.text_area(:comentarios, class: "span9") %><br />
+        <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
+    </div>
+    <div class="span11 field-box actions">
+      <%= f.submit "Crear Habitacion", class:"btn-glow primary"  %>
+        <span>OR</span>
+        <input type="reset" value="Cancel" class="reset" />
+    </div>
 <% end %>
