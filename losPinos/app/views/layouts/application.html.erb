@@ -106,8 +106,8 @@
                     
                 </a>
                 <ul class="submenu">
-                    <li><a href="user-list.html">Ver reservas</a></li>
-                    <li><a href="new-user.html">Nueva reserva</a></li>
+                    <li><%= link_to "Ver Reservas" , reservas_path %></li>
+                    <li><%= link_to "Ingresar Reserva" , new_reserva_path %></li>
                 </ul>
             </li>
             <li>
@@ -117,7 +117,7 @@
                     <i class="icon-chevron-down"></i>
                 </a>
                 <ul class="submenu">
-                    <li><a href="user-list.html">Ver usuarios</a></li>
+                    <li><%= link_to "Ver Clientes" , clientes_path %></li>
                     <li><%= link_to "Nuevo Cliente" , new_cliente_path %></li>
                 </ul>
             </li>
@@ -128,8 +128,8 @@
                     <i class="icon-chevron-down"></i>
                 </a>
                 <ul class="submenu">
-                    <li><a href="form-showcase.html">Ver habitaciones</a></li>
-                    <li><a href="form-wizard.html">Nueva habitación</a></li>
+                    <li><%= link_to "Ver Habitaciones" , habitacions_path %></li>
+                    <li><%= link_to "Nueva Habitacion" , new_habitacion_path %></li>
                 </ul>
             </li>
             <li>

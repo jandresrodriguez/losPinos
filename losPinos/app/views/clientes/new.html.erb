@@ -7,7 +7,7 @@
 <!-- left column -->
 <div class="span9 with-sidebar">
     <div class="container">
-        <%= form_for :cliente do |f| %>
+        <%= form_for @cliente do |f| %>
             <div class="span12 field-box">
                 <label>Nombre:</label>
                 <%= f.text_field(:nombre, class: "span9") %><br />
@@ -23,14 +23,6 @@
             <div class="span12 field-box">
                 <label>Nacionalidad:</label>
                 <%= f.text_field(:nacionalidad, class: "span9") %><br />
-            </div>
-            <div class="span12 field-box">
-                <label>Documento:</label>
-                <%= f.text_field(:documento, class: "span9") %><br />
-            </div>
-            <div class="span12 field-box">
-                <label>Tipo de Documento:</label>
-                <%= f.text_field(:documento_tipo, class: "span9") %><br />
             </div>
             <div class="span12 field-box">
                 <label>Email:</label>

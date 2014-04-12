@@ -345,12 +345,13 @@ input.search{
 	height: initial;
 }
 #dashboard-menu > li:hover i{
-	opacity: 1;
+	opacity: 1 !important;
 }
 #dashboard-menu > li.active > a,
 #dashboard-menu > li > a:hover {
-	color: rgba(51, 69, 90, 1);
-	text-decoration: none;
+	color: rgba(51, 69, 90, 1) !important;
+	text-decoration: none !important;
+	background-color: #F7F7F7 !important;
 }
 #dashboard-menu > li.active a {
 	font-weight: 600;
@@ -364,6 +365,9 @@ input.search{
 #dashboard-menu > li.active .dropdown-toggle {
 	border-bottom: 0px;
 	box-shadow: none;
+}
+a:hover{
+	background-color: transparent;
 }
 #dashboard-menu ul.submenu {
 	list-style-type: none;
@@ -390,6 +394,7 @@ input.search{
 }
 #dashboard-menu ul.submenu a:hover {
 	text-decoration: underline;
+	background-color: #F7F7F7 !important;
 }
 #dashboard-menu ul.submenu a.active {
 	font-weight: bold;
