@@ -3,9 +3,9 @@
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th>Nombre</th>
+      <th>Numero</th>
       <th>Descripcion</th>
-      <th>Disponible</th>
+      <th>Disponiblidad</th>
       <th>Comentarios</th>
       <th>Nro camas single</th>
       <th>Nro camas matrimoniales</th>
@@ -20,7 +20,13 @@
       <tr>
         <td><%= habitacion.nombre %></td>
         <td><%= habitacion.descripcion %></td>
-        <td><%= habitacion.disponible %></td>
+        <td>
+          <% if habitacion.disponible %>
+            <%=  'Disponible '%>
+          <% else %>
+            <%=  'Ocupada '%>
+          <% end %>
+        </td>
         <td><%= habitacion.comentarios %></td>
         <td><%= habitacion.nro_camas_single %></td>
         <td><%= habitacion.nro_camas_matrimoniales %></td>

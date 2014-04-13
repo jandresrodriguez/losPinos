@@ -5,7 +5,8 @@ class StaticPagesController < ApplicationController
 	end
 
 	def home
-
+		@disponibles = Habitacion.where(disponible: true).to_a
+		#@disponibles = Reserva.joins(:habitacion)
 	end
 
 	def action

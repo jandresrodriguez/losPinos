@@ -12,11 +12,11 @@
 
   <div class="span12 field-box">
       <%= f.label :fecha_inicio_estadia %>
-      <%= f.date_select :fecha_inicio_estadia, start_year:Time.now.year %>
+      <%= f.datetime_select :fecha_inicio_estadia, start_year:Time.now.year , end_year: Time.now.year + 10 %>
   </div>
   <div class="span12 field-box">
     <%= f.label :fecha_fin_estadia %>
-    <%= f.date_select :fecha_fin_estadia, start_year:Time.now.year %>
+    <%= f.datetime_select :fecha_inicio_estadia, start_year:Time.now.year , end_year: Time.now.year + 10 %>
   </div>
 
   <div class="span12 field-box">
@@ -26,8 +26,8 @@
         <%= f.select(:moneda, ['Peso', 'Dolar', 'Euro'], class: "span6") %>
             <%= f.number_field(:monto, class: "span6", style: "margin-bottom:0px", placeholder: "Monto") %> 
       </div>
-      <%= f.select(:abonada,  [['Abonada', true],['No abonada'], false]) %>
-            <%= f.select(:forma_de_pago, ['Contado', 'Crédito'], class: "span6") %>
+      <%= f.select(:abonada,  [['Abonada', true],['No abonada', false]]) %>
+      <%= f.select(:forma_de_pago, ['Contado', 'Crédito'], class: "span6") %>
 
     </div>
   </div>
