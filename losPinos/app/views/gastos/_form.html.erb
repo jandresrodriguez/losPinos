@@ -11,27 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :fecha %><br>
-    <%= f.date_select :fecha %>
+
+  <div class="span12 field-box">
+    <label>Rubro:</label>
+    <%= f.text_field(:rubro, class: "span9") %><br />
   </div>
-  <div class="field">
-    <%= f.label :rubro %><br>
-    <%= f.text_field :rubro %>
+  <div class="span12 field-box">
+    <label>Fecha:</label>
+    <%= f.date_select :fecha , order: [:day, :month, :year], start_year: Time.now.year - 10, end_year: Time.now.year%> <br />
   </div>
-  <div class="field">
-    <%= f.label :monto %><br>
-    <%= f.text_field :monto %>
+  <div class="span12 field-box">
+    <label>Monto:</label>
+    <%= f.text_field(:monto, class: "span9") %><br />
+  </div>  
+  <div class="span12 field-box">
+    <label>Moneda:</label>
+    <%= f.text_field(:moneda, class: "span9") %><br />
+  </div> 
+  <div class="span12 field-box textarea">
+      <label>Comentarios:</label>
+      <%= f.text_area(:comentarios, class: "span9") %><br />
+      <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
   </div>
-  <div class="field">
-    <%= f.label :moneda %><br>
-    <%= f.text_field :moneda %>
+  <div class="span11 field-box actions">
+    <%= f.submit "Ingresar Gasto", class:"btn-glow primary"  %>
+      <span>OR</span>
+      <input type="reset" value="Cancelar" class="reset" />
   </div>
-  <div class="field">
-    <%= f.label :comentarios %><br>
-    <%= f.text_field :comentarios %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>

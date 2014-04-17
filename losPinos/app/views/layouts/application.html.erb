@@ -99,8 +99,7 @@
             
             <li>
                 <a class="dropdown-toggle" href="#">
-                    <i class="icon-calendar-empty">
-</i>
+                    <i class="icon-calendar-empty"></i>
                     <span>Reservas</span>
                     <i class="icon-chevron-down"></i>
                     
@@ -133,10 +132,15 @@
                 </ul>
             </li>
             <li>
-                <a href="personal-info.html">
-                    <i class="icon-bar-chart"></i>
-                    <span>Estadísticas</span>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-money"></i>
+                    <span>Gastos</span>
+                    <i class="icon-chevron-down"></i>
                 </a>
+                <ul class="submenu">
+                    <li><%= link_to "Ver Gastos" , gastos_path %></li>
+                    <li><%= link_to "Ingresar Gasto" , new_gasto_path %></li>
+                </ul>
             </li>
             <li>
                 <a href="personal-info.html">

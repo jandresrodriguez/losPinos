@@ -20,7 +20,7 @@
     </div>
     <div class="span12 field-box">
         <label>Fecha de Nacimiento:</label>
-        <%= f.date_select :fecha_nac , start_year: Time.now.year - 110, end_year: Time.now.year%> <br />
+        <%= f.date_select :fecha_nac , order: [:day, :month, :year], start_year: Time.now.year - 110, end_year: Time.now.year%> <br />
     </div>
     <div class="span12 field-box">
         <label>Nacionalidad:</label>

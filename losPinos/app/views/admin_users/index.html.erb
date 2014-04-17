@@ -24,9 +24,9 @@
         <td><%= admin_user.habilitado %></td>
         <td><%= admin_user.email %></td>
         <td><%= admin_user.nivel %></td>
-        <td><%= link_to 'Show', admin_user %></td>
-        <td><%= link_to 'Edit', edit_admin_user_path(admin_user) %></td>
-        <td><%= link_to 'Destroy', admin_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', admin_user %></td>
+        <td><%= link_to 'Editar', edit_admin_user_path(admin_user) %></td>
+        <td><%= link_to 'Eliminar', admin_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
