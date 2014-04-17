@@ -32,7 +32,7 @@
         <td><%= habitacion.nro_camas_matrimoniales %></td>
         <td><%= link_to 'Ver', habitacion %></td>
         <td><%= link_to 'Editar', edit_habitacion_path(habitacion) %></td>
-        <td><%= link_to 'Eliminar', habitacion, method: :delete, data: { confirm: 'Estas seguro que desea eliminar el gasto?' } %></td>
+        <td><%= link_to 'Eliminar', habitacion, method: :delete, data: { confirm: 'Estas seguro que desea eliminar la habitacion?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Habitacion', new_habitacion_path %>
+<%= link_to 'Crear Habitacion', new_habitacion_path %>

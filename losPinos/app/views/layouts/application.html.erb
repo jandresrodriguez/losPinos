@@ -28,13 +28,39 @@
 
     <!-- libraries -->
     <%= stylesheet_link_tag "font-awesome" %>
-    <%= stylesheet_link_tag "jquery-ui-1.10.2.custom.css" %>
+     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/lib/font-awesome.css" />
-    <link href="css/lib/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />
 
     <!-- this page specific styles -->
     <%= stylesheet_link_tag "index" %>
     <link rel="stylesheet" href="/assets/css/compiled/index.css" type="text/css" media="screen" />
+
+    <!-- scripts -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <!-- knob -->
+    <script src="/assets/js/jquery.knob.js"></script>
+    <!-- flot charts -->
+    <script src="/assets/js/jquery.flot.js"></script>
+    <script src="/assets/js/jquery.flot.stack.js"></script>
+    <script src="/assets/js/jquery.flot.resize.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#cliente_form").hide();
+        $("#con_cliente").bind('change', function(){
+            if($(this).is(':checked')){
+                $("#cliente_form").show("blind");
+            }
+            else{
+                $("#cliente_form").hide("blind");
+            }
+        });
+      });
+    </script>
 
     <!-- open sans font -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
@@ -44,7 +70,7 @@
 
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <![endif]--> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 
@@ -170,17 +196,7 @@
 
 	
 
-	<!-- scripts -->
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/jquery-ui-1.10.2.custom.min.js"></script>
-    <!-- knob -->
-    <script src="/assets/js/jquery.knob.js"></script>
-    <!-- flot charts -->
-    <script src="/assets/js/jquery.flot.js"></script>
-    <script src="/assets/js/jquery.flot.stack.js"></script>
-    <script src="/assets/js/jquery.flot.resize.js"></script>
-    <script src="/assets/js/theme.js"></script>
+
 
     <script type="text/javascript">
         $(function () {

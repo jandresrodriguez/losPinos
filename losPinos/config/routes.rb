@@ -1,5 +1,7 @@
 LosPinos::Application.routes.draw do
 
+  get "checks/checkin"
+  get "checks/checkout"
   # Pantalla principal
   root 'sessions#new'
 
