@@ -1,6 +1,6 @@
-<h1>Reservas</h1>
+<h1 style="margin-top: 20px; margin-left: 10px; margin-bottom: 20px;">Listado de reservas</h1>
 
-<table>
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Fecha creacion</th>
@@ -29,6 +29,15 @@
         <td><%= reserva.monto %></td>
         <td><%= reserva.moneda %></td>
         <td><%= reserva.abonada %></td>
+
+        <td>
+          <% if reserva.abonada %>
+            <%= 'Abonada' %>
+          <% else %>
+            <%= 'No abonada' %>
+          <% end %>
+        </td>
+
         <td><%= reserva.forma_de_pago %></td>
         <td><%= reserva.tipo_reserva %></td>
         <td><%= reserva.cliente %></td>
