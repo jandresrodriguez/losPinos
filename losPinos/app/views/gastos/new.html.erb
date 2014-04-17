@@ -1,5 +1,13 @@
-<h1>New gasto</h1>
+<div id="pad-wrapper" class="new-user">
+<div class="row-fluid header">
+<h3>Ingresar Gasto</h3>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', gastos_path %>
+<div class="row-fluid form-wrapper">
+<!-- left column -->
+<div class="span9 with-sidebar">
+    <div class="container">
+        <%= render 'form' %>
+  	<%= link_to 'Back', clientes_path %>
+    </div>
+</div>
