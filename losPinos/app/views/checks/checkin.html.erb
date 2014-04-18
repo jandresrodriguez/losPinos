@@ -19,7 +19,7 @@
 				      </ul>
 				    </div>
 				  <% end %>
-				  <div class="span12 field-box">
+				   <div class="span12 field-box">
 				    <%= f.label :cliente_id %>
 				    <% clientes_array = Cliente.all.map { |cliente| ["#{cliente.nombre} #{cliente.apellido}", cliente.id] } %>
 				    <%= f.select(:cliente_id, options_for_select(clientes_array)) %>
@@ -28,56 +28,57 @@
 				    <label >Cliente Nuevo?</label>
 				    <%= check_box_tag 'con_cliente', 'ClienteNuevo', false %>
 				  </div>
-
+				<div style="clear:both"></div>
 				<div id="cliente_form">
-					<%= f.fields_for :cliente, @reserva.cliente  do |cliente_builder| %>
+					<%= f.fields_for :cliente  do |ff| %>
 					  <div class="span12 field-box">
 				        <label>Nombre:</label>
-				        <%= cliente_builder.text_field(:nombre, class: "span9") %><br />
+				        <%= ff.text_field(:nombre, class: "span9") %><br />
 				    </div>
 				    <div class="span12 field-box">
 				        <label>Apellido:</label>
-				        <%= cliente_builder.text_field(:apellido, class: "span9") %><br />
+				        <%= ff.text_field(:apellido, class: "span9") %><br />
 				    </div>
 				    <div class="span12 field-box">
 				        <label>Fecha de Nacimiento:</label>
-				        <%= cliente_builder.date_select :fecha_nac , order: [:day, :month, :year], start_year: Time.now.year - 110, end_year: Time.now.year%> <br />
+				        <%= ff.date_select :fecha_nac , order: [:day, :month, :year], start_year: Time.now.year - 110, end_year: Time.now.year%> <br />
 				    </div>
 				    <div class="span12 field-box">
 				        <label>Nacionalidad:</label>
-				        <%= cliente_builder.text_field(:nacionalidad, class: "span9") %><br />
+				        <%= ff.text_field(:nacionalidad, class: "span9") %><br />
 				    </div>
 				    <div class="span12 field-box">
 				        <label>Email:</label>
-				        <%= cliente_builder.text_field(:email, class: "span9") %><br />
+				        <%= ff.text_field(:email, class: "span9") %><br />
 				    </div>
 				    <div class="span12 field-box">
 				        <label>Telefono:</label>
-				        <%= cliente_builder.text_field(:telefono, class: "span9") %><br />
+				        <%= ff.text_field(:telefono, class: "span9") %><br />
 				    </div>
 				    <div class="span12 field-box">
 				        <label>Documento:</label>
 				        <div class="address-fields">
-				          <%= cliente_builder.text_field(:documento_tipo, class: "span12 small", placeholder: "Tipo Documento") %>
-				          <%= cliente_builder.text_field(:documento, class: "span12 small", placeholder: "Documento") %>
+				          <%= ff.text_field(:documento_tipo, class: "span12 small", placeholder: "Tipo Documento") %>
+				          <%= ff.text_field(:documento, class: "span12 small", placeholder: "Documento") %>
 				        </div>
 				    </div>
 				    <div class="span12 field-box">
 				        <label>Direccion:</label>
 				        <div class="address-fields">
-				            <%= cliente_builder.text_field(:direccion, class: "span12", style: "margin-bottom: 15px;" , placeholder: "Direccion") %>
-				            <%= cliente_builder.text_field(:ciudad_residencia, class: "span12 small", placeholder: "Ciudad") %>
-				            <%= cliente_builder.text_field(:estado_residencia, class: "span12 small", placeholder: "Estado") %>
-				            <%= cliente_builder.text_field(:pais_residencia, class: "span12 small", placeholder: "Pais") %>
-				            <%= cliente_builder.text_field(:codigo_postal, class: "span12 small last", style: "margin-top: 15px;" , placeholder: "Codigo Postal") %>
+				            <%= ff.text_field(:direccion, class: "span12", style: "margin-bottom: 15px;" , placeholder: "Direccion") %>
+				            <%= ff.text_field(:ciudad_residencia, class: "span12 small", placeholder: "Ciudad") %>
+				            <%= ff.text_field(:estado_residencia, class: "span12 small", placeholder: "Estado") %>
+				            <%= ff.text_field(:pais_residencia, class: "span12 small", placeholder: "Pais") %>
+				            <%= ff.text_field(:codigo_postal, class: "span12 small last", style: "margin-top: 15px;" , placeholder: "Codigo Postal") %>
 				        </div>
 				    </div>
 				    <div class="span12 field-box textarea">
 				        <label>Comentarios:</label>
-				        <%= cliente_builder.text_area(:comentarios, class: "span9") %><br />
+				        <%= ff.text_area(:comentarios, class: "span9") %><br />
 				        <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
 				    </div>
 					<% end %>
+					<div style="clear:both"></div>
 				  </div>
 				
 				

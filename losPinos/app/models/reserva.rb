@@ -3,9 +3,7 @@ class Reserva < ActiveRecord::Base
   belongs_to :cliente
   belongs_to :habitacion
 
-  validate do |reserva|
-  	ReservaValidate.new(reserva).validate
-	end
+  accepts_nested_attributes_for :cliente
 
   # validates :monto, :moneda, presence: true
 

@@ -4,43 +4,37 @@
 <head>
 	<title>Los Pinos - Home</title>
 	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-      <%= javascript_include_tag :defaults %>
 	  <%= csrf_meta_tags %>
       <%= favicon_link_tag 'icono_pinos.ico' %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
     <!-- bootstrap -->
-    <%= stylesheet_link_tag "bootstrap" %>
-    <%= stylesheet_link_tag "bootstrap-responsive" %>
-    <%= stylesheet_link_tag "bootstrap-overrides" %>
+
     <link href="/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="/assets/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
     <link href="/assets/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
 
     <!-- global styles -->
-    <%= stylesheet_link_tag "layout" %>
-    <%= stylesheet_link_tag "elements" %>
-    <%= stylesheet_link_tag "icons" %>
+
 
     <link rel="stylesheet" type="text/css" href="/assets/css/layout.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/elements.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/icons.css" />
 
     <!-- libraries -->
-    <%= stylesheet_link_tag "font-awesome" %>
-     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+     <link rel="stylesheet" href="/assets/jQueryUI-v1-10-4.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/lib/font-awesome.css" />
 
     <!-- this page specific styles -->
-    <%= stylesheet_link_tag "index" %>
+
     <link rel="stylesheet" href="/assets/css/compiled/index.css" type="text/css" media="screen" />
 
     <!-- scripts -->
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
 
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="/assets/jquery-1-10-2.js"></script>
+    <script src="/assets/jquery-ui-1-10-4.js"></script>
     <!-- knob -->
     <script src="/assets/js/jquery.knob.js"></script>
     <!-- flot charts -->
@@ -169,13 +163,13 @@
                 </ul>
             </li>
             <li>
-                <a href="personal-info.html">
-                    <i class="icon-book"></i>
-                    <span>Reportes</span>
+                <a href="/checks/checkin">
+                    <i class="icon-check"></i>
+                    <span>Check-In</span>
                 </a>
             </li>
             <li>
-                <a href="personal-info.html">
+                <a href="#">
                     <i class="icon-cog"></i>
                     <span>Ajustes</span>
                 </a>

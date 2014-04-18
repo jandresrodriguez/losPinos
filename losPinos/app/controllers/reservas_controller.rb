@@ -25,7 +25,6 @@ class ReservasController < ApplicationController
   # POST /reservas.json
   def create
     @reserva = Reserva.new(reserva_params)
-
     # Seteo el resto de los parametros
     @reserva.fehca_creacion = Time.now
 
@@ -72,6 +71,6 @@ class ReservasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reserva_params
-      params.require(:reserva).permit(:fehca_creacion, :fecha_inicio_estadia, :fecha_fin_estadia, :monto, :moneda, :abonada, :forma_de_pago, :tipo_reserva_id, :cliente_id, :habitacion_id, :comentarios)
+      params.require(:reserva).permit( :fehca_creacion, :fecha_inicio_estadia, :fecha_fin_estadia, :monto, :moneda, :abonada, :forma_de_pago, :tipo_reserva_id, :cliente_id, :habitacion_id, :comentarios, cliente_attributes: [:nombre, :apellido, :fecha_nac, :nacionalidad, :documento, :documento_tipo, :comentarios, :email])
     end
 end
