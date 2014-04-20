@@ -37,6 +37,9 @@ LosPinos::Application.routes.draw do
   match '/home',  to: 'static_pages#home',         via: 'get'
   match '/home1',  to: 'static_pages#action',         via: 'post'
 
+  get "/ultimas_reservas(.:format)" => "static_pages#ultimas"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

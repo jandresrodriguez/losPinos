@@ -4,10 +4,12 @@ class StaticPagesController < ApplicationController
 
 	end
 
+	def ultimas
+		render json: Reserva.where(fecha_inicio_estadia: (DateTime.now-3).to_date.beginning_of_day()..(DateTime.now+1).to_date.beginning_of_day() ).order(fecha_inicio_estadia: :desc)
+	end
+
 	def home
 		@disponibles = Habitacion.where(disponible: true).to_a
-		@ultimas = Reserva.find(:all, :order => "fecha_inicio_estadia")
-		#@disponibles = Reserva.joins(:habitacion)
 	end
 
 	def action

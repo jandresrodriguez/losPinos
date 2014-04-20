@@ -47,9 +47,31 @@
                             <h4>Reservas para el dia de hoy
                             <small>Ultimas reservas activas</small>
                         </h4>
-                         <div ng-controller="HomeCtrl">
-                          <h1>Message: {{message}}</h1>
+                        <div ng-controller="HomeCtrl">
+                          <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>Fecha Inicio Estadia</th>
+                                  <th>Fecha Fin Estadia</th>
+                                  <th>Cliente</th>
+                                  <th>Habitacion</th>
+                                  <th>Comentarios</th>
+                                </tr>
+                              </thead>
+
+                              <tbody ng-repeat="reserva in reservas">
+                                  <tr>
+                                    <td>{{reserva.fecha_inicio_estadia}}</td>
+                                    <td>{{reserva.fecha_fin_estadia}}</td>
+                                    <td>{{reserva.cliente}}</td>
+                                    <td>{{reserva.habitacion}}</td>
+                                    <td>{{reserva.comentarios}}</td>
+                                  </tr>
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
+
 
  
                         </div>

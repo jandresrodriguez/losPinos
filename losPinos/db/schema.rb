@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411185403) do
+ActiveRecord::Schema.define(version: 20140420232411) do
 
   create_table "admin_users", force: true do |t|
     t.string   "usuario"
@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(version: 20140411185403) do
   end
 
   create_table "reservas", force: true do |t|
-    t.date     "fehca_creacion"
-    t.date     "fecha_inicio_estadia"
-    t.date     "fecha_fin_estadia"
+    t.datetime "fehca_creacion"
+    t.datetime "fecha_inicio_estadia"
+    t.datetime "fecha_fin_estadia"
     t.integer  "monto"
     t.string   "moneda"
     t.boolean  "abonada"

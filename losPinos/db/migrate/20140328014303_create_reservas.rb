@@ -1,9 +1,9 @@
 class CreateReservas < ActiveRecord::Migration
   def change
     create_table :reservas do |t|
-      t.datetime :fehca_creacion
-      t.datetime :fecha_inicio_estadia
-      t.datetime :fecha_fin_estadia
+      t.date :fehca_creacion
+      t.date :fecha_inicio_estadia
+      t.date :fecha_fin_estadia
       t.integer :monto
       t.string :moneda
       t.boolean :abonada
