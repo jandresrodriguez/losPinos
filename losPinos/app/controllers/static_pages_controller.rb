@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
 
 	def home
 		@disponibles = Habitacion.where(disponible: true).to_a
+		@ultimas = Reserva.find(:all, :order => "fecha_inicio_estadia")
 		#@disponibles = Reserva.joins(:habitacion)
 	end
 

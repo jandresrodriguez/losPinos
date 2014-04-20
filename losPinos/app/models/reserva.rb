@@ -7,6 +7,11 @@ class Reserva < ActiveRecord::Base
 
   # validates :monto, :moneda, presence: true
 
+  validates :fecha_inicio_estadia, presence: true
+  validates :fecha_fin_estadia, presence: true
+  validates :cliente, presence: true
+  validates :habitacion, presence: true
+
 end
 
 # Validaciones

@@ -14,4 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.ui.effect-blind
-//= require_tree .
+//= require angular
+//= require main
+//= require app
+//= require_tree ./angular
+

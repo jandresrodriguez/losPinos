@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html ng-app="LosPinos">
 <head>
 	<title>Los Pinos - Home</title>
 	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -42,6 +42,10 @@
     <script src="/assets/js/jquery.flot.stack.js"></script>
     <script src="/assets/js/jquery.flot.resize.js"></script>
     <script src="/assets/js/theme.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+    <%= javascript_include_tag "application" %>
+
     <script type="text/javascript">
       $(document).ready(function(){
         $("#cliente_form").hide();
@@ -67,6 +71,10 @@
     <![endif]--> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
+      <header>
+    Los Pinos
+     </header>
+
 
     <!-- navbar -->
     <div class="navbar navbar-inverse">

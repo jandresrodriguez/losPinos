@@ -35,21 +35,7 @@
 
             <div id="pad-wrapper">
 
-                <!-- statistics chart built with jQuery Flot -->
-                <div class="row-fluid chart">
-                    <h4>
-                        Estadisticas
-                         <div class="btn-group pull-right">
-                            <button class="glow left">DAY</button>
-                            <button class="glow middle active">MONTH</button>
-                            <button class="glow right">YEAR</button>
-                        </div>
-                    </h4>
-                    <div class="span12">
-                        <div id="statsChart"></div>
-                    </div>
-                </div>
-                <!-- end statistics chart -->
+
 
                
 
@@ -58,10 +44,14 @@
                 <div class="table-products section">
                     <div class="row-fluid head">
                         <div class="span12">
-                            <h4>Reservas 
-                            <small>Ultimas reservas registradas</small>
+                            <h4>Reservas para el dia de hoy
+                            <small>Ultimas reservas activas</small>
                         </h4>
+                         <div ng-controller="HomeCtrl">
+                          <h1>Message: {{message}}</h1>
+                        </div>
 
+ 
                         </div>
                     </div>
 

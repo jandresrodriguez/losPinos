@@ -3,11 +3,8 @@ class ChecksController < ApplicationController
   def checkin
   	@reserva = Reserva.new
   	@reserva.build_cliente
-  	
-  end
-
-  def reserva_params
-    params.require(:reserva).permit(:name, cliente_attributes:[:name])
+  	@ultimas = Reserva.where(fecha_inicio_estadia: [(DateTime.now-3).to_date, 
+      DateTime.now.to_date]).order(fecha_inicio_estadia: :desc)
   end
 
   def checkout
