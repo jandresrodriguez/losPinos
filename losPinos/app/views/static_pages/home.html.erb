@@ -59,12 +59,12 @@
                                 </tr>
                               </thead>
 
-                              <tbody ng-repeat="reserva in reservas">
-                                  <tr>
-                                    <td>{{reserva.fecha_inicio_estadia}}</td>
-                                    <td>{{reserva.fecha_fin_estadia}}</td>
-                                    <td>{{reserva.cliente}}</td>
-                                    <td>{{reserva.habitacion}}</td>
+                              <tbody ng-repeat="reserva in reservas" >
+                                  <tr ng-style="set_color">
+                                    <td>{{ dateNow | date:'medium'}}</td>
+                                    <td>{{reserva.fecha_fin_estadia | date:'medium'}}</td>
+                                    <td>{{reserva.cliente.nombre}}</td>
+                                    <td>{{reserva.habitacion.nombre}}</td>
                                     <td>{{reserva.comentarios}}</td>
                                   </tr>
                               </tbody>
