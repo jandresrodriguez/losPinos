@@ -17,14 +17,14 @@
                     </div>
                     <div class="span3 stat">
                         <div class="data">
-                            <span class="number">18</span>
+                            <span class="number"><%= @reservas_semana.count %></span>
                             RESERVAS
                         </div>
                         <span class="date">Esta semana</span>
                     </div>
                     <div class="span3 stat last">
                         <div class="data">
-                            <span class="number">$2,340</span>
+                            <span class="number">$<%= @ventas_mes %></span>
                             VENTAS
                         </div>
                         <span class="date">Últimos 30 días</span>
@@ -41,7 +41,7 @@
 
                 <!-- table sample -->
                 <!-- the script for the toggle all checkboxes from header is located in js/theme.js -->
-                <div class="table-products section">
+                <div class="table-products">
                     <div class="row-fluid head">
                         <div class="span12">
                             <h4>Reservas para el dia de hoy

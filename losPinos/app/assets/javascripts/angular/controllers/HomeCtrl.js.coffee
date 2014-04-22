@@ -1,4 +1,4 @@
-App.controller 'HomeCtrl', ['$scope', '$location', '$http', ($scope, $location, $http) ->
+App.controller 'HomeCtrl', ['$scope', '$location', '$http', '$timeout',  ($scope, $location, $http, $timeout) ->
   $scope.reservas = []
   $http.get('./ultimas_reservas.json').success((data) ->
     $scope.reservas = data
@@ -22,7 +22,7 @@ App.controller 'HomeCtrl', ['$scope', '$location', '$http', ($scope, $location, 
     else if horas > 23
       return tiempo  + dias + " dias"
     else
-      return min     
+      return tiempo  + min + " minutos"    
 
   $scope.set_bg = (reserva) ->
     horas = Math.round((Date.parse(reserva.fecha_inicio_estadia) - Date.now()) / 3600000)
@@ -35,6 +35,14 @@ App.controller 'HomeCtrl', ['$scope', '$location', '$http', ($scope, $location, 
   	if Math.round((Date.parse(reserva.fecha_inicio_estadia) - Date.now()) / 60000) < 59
   		return 'color': 'white'
   
+  fireDigestEveryMinute = ->
+    $timeout (->
+      fireDigestEveryMinute()
+      return
+    ), 60000
+    return
+
+  fireDigestEveryMinute()
 ]
 
 

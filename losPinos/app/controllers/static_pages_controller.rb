@@ -12,6 +12,14 @@ class StaticPagesController < ApplicationController
 
 	def home
 		@disponibles = Habitacion.where(disponible: true).to_a
+		@reservas_semana = Reserva.where(fecha_inicio_estadia: (DateTime.now-7).to_date.beginning_of_day()..(DateTime.now+1).to_date.beginning_of_day()).to_a
+		@reservas_mes = Reserva.where(fecha_inicio_estadia: (DateTime.now-30).to_date.beginning_of_day()..(DateTime.now+1).to_date.beginning_of_day()).to_a
+		@ventas_mes = 0
+		@reservas_mes.each do |reserva|
+			if reserva.monto
+				@ventas_mes+=reserva.monto
+			end
+		end
 	end
 
 	def action
