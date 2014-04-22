@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
 	end
 
 	def ultimas
-		@ultimas = Reserva.where(fecha_inicio_estadia: (DateTime.now-3).to_date.beginning_of_day()..(DateTime.now+1).to_date.beginning_of_day())
+		@ultimas = Reserva.where(fecha_inicio_estadia: (DateTime.now-3).to_date.beginning_of_day()..(DateTime.now+15).to_date.beginning_of_day())
 		.order(fecha_inicio_estadia: :desc)
 		render json: @ultimas, include: [:cliente, :habitacion]
 	end
