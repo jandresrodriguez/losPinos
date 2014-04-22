@@ -7,10 +7,18 @@ class Reserva < ActiveRecord::Base
 
   # validates :monto, :moneda, presence: true
 
-  validates :fecha_inicio_estadia, presence: true
-  validates :fecha_fin_estadia, presence: true
-  validates :cliente, presence: true
-  validates :habitacion, presence: true
+  validate :fechas_coherentes
+
+  validates :fecha_inicio_estadia, presence: true, allow_blank: false
+  validates :fecha_fin_estadia, presence: true, allow_blank: false
+  validates :cliente, presence: true, allow_blank: false
+  validates :habitacion, presence: true, allow_blank: false
+
+  def fechas_coherentes
+  	if fecha_inicio_estadia>=fecha_fin_estadia
+  		errors.add(:base, 'error message')
+  	end
+  end
 
 end
 
