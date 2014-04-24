@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html ng-app="LosPinos">
+<head>
+	<title>Los Pinos - Home</title>
+	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= csrf_meta_tags %>
+      <%= favicon_link_tag 'icono_pinos.ico' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <!-- bootstrap -->
+
+    <link href="/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+
+    <!-- global styles -->
+
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/elements.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/icons.css" />
+
+    <!-- libraries -->
+
+     <link rel="stylesheet" href="/assets/jQueryUI-v1-10-4.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/lib/font-awesome.css" />
+
+    <!-- this page specific styles -->
+
+    <link rel="stylesheet" href="/assets/css/compiled/index.css" type="text/css" media="screen" />
+
+    <!-- scripts -->
+    
+
+    <script src="/assets/jquery-1-10-2.js"></script>
+    <script src="/assets/jquery-ui-1-10-4.js"></script>
+    <!-- knob -->
+    <script src="/assets/js/jquery.knob.js"></script>
+    <!-- flot charts -->
+    <script src="/assets/js/jquery.flot.js"></script>
+    <script src="/assets/js/jquery.flot.stack.js"></script>
+    <script src="/assets/js/jquery.flot.resize.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+    <%= javascript_include_tag "application" %>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#cliente_form").hide();
+        $("#con_cliente").bind('change', function(){
+            if($(this).is(':checked')){
+                $("#cliente_form").show("blind");
+            }
+            else{
+                $("#cliente_form").hide("blind");
+            }
+        });
+      });
+    </script>
+
+    <!-- open sans font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+
+    <!-- lato font -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css' />
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+      <header>
+    Los Pinos
+     </header>
+
+
+    <!-- navbar -->
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <button type="button" class="btn btn-navbar visible-phone" id="menu-toggler">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <a class="brand" href="/home"><%= image_tag "img/lospinos_detail_admin.png" %></a> 
+
+            <ul class="nav pull-right">                               
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Hi, <% if session[:user_id] %>
+                            <%= session[:usuario] %>
+                        <% end %> 
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><% if session[:user_id] %>
+                                <%= link_to "Cerrar Sesion", logout_path, method: :delete %>
+                            <% end %></li>
+
+                        
+                    </ul>
+                </li>
+                
+            </ul>            
+        </div>
+    </div>
+    <!-- end navbar -->
+
+    <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+            <li >
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+                <a href="/home">
+                    <i class="icon-home"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>            
+            
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-calendar-empty"></i>
+                    <span>Reservas</span>
+                    <i class="icon-chevron-down"></i>
+                    
+                </a>
+                <ul class="submenu">
+                    <li><%= link_to "Ver Reservas" , reservas_path %></li>
+                    <li><%= link_to "Ingresar Reserva" , new_reserva_path %></li>
+                </ul>
+            </li>
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-group"></i>
+                    <span>Clientes</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><%= link_to "Ver Clientes" , clientes_path %></li>
+                    <li><%= link_to "Nuevo Cliente" , new_cliente_path %></li>
+                </ul>
+            </li>
+            <li class="active">
+                <a class="active" href="#">
+                    <i class="icon-key"></i>
+                    <span>Habitaciones</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu" style="display: block;">
+                    <li><%= link_to "Ver Habitaciones" , habitacions_path %></li>
+                    <li><%= link_to "Nueva Habitacion" , new_habitacion_path %></li>
+                </ul>
+            </li>
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-money"></i>
+                    <span>Gastos</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><%= link_to "Ver Gastos" , gastos_path %></li>
+                    <li><%= link_to "Ingresar Gasto" , new_gasto_path %></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/checks/checkin">
+                    <i class="icon-check"></i>
+                    <span>Check-In</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="icon-cog"></i>
+                    <span>Ajustes</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <!-- end sidebar -->
+
+
+	<!-- main container -->
+    <div class="content">
+        <div class="container-fluid">
+    <%= yield %>
+
+    	</div>
+    </div>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    
+</body>
+
+</html>

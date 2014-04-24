@@ -1,4 +1,6 @@
 class ReservasController < ApplicationController
+  layout "reservas"
+
   before_action :set_reserva, only: [:show, :edit, :update, :destroy]
 
   # GET /reservas
