@@ -12,8 +12,6 @@
       <th>Comentarios</th>
       <th>Email</th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -22,15 +20,14 @@
       <tr>
         <td><%= cliente.nombre %></td>
         <td><%= cliente.apellido %></td>
-        <td><%= cliente.fecha_nac %></td>
+        <td><%= cliente.fecha_nac.strftime("%m-%d-%Y") %></td>
         <td><%= cliente.nacionalidad %></td>
         <td><%= cliente.documento %></td>
         <td><%= cliente.documento_tipo %></td>
         <td><%= cliente.comentarios %></td>
         <td><%= cliente.email %></td>
-        <td><%= link_to 'Ver', cliente %></td>
-        <td><%= link_to 'Editar', edit_cliente_path(cliente) %></td>
-        <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: 'Estas seguro que desea eliminar el cliente?' } %></td>
+        <td><%= link_to 'Editar', edit_cliente_path(cliente), class: 'btn btn-mini' %> 
+        <%= link_to 'Eliminar', cliente_path(cliente), :method => :delete, :confirm => 'Estas seguro que desea eliminar el cliente?', class: 'btn btn-mini btn-danger',style: 'color: white; font-weight: bold;' %></td>
       </tr>
     <% end %>
   </tbody>

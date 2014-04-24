@@ -11,6 +11,7 @@ class Reserva < ActiveRecord::Base
 
   validates :fecha_inicio_estadia, presence: true, allow_blank: false
   validates :fecha_fin_estadia, presence: true, allow_blank: false
+  validates :monto, presence: true, allow_blank: false
   validates :cliente, presence: true, allow_blank: false
   validates :habitacion, presence: true, allow_blank: false
 

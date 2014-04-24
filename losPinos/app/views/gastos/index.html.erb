@@ -9,8 +9,7 @@
       <th>Moneda</th>
       <th>Comentarios</th>
       <th></th>
-      <th></th>
-      <th></th>
+
     </tr>
   </thead>
 
@@ -22,9 +21,8 @@
         <td><%= gasto.monto %></td>
         <td><%= gasto.moneda %></td>
         <td><%= gasto.comentarios %></td>
-        <td><%= link_to 'Ver', gasto %></td>
-        <td><%= link_to 'Editar', edit_gasto_path(gasto) %></td>
-        <td><%= link_to 'Eliminar', gasto, method: :delete, data: { confirm: 'Estas seguro que desea eliminar el gasto?' } %></td>
+        <td><%= link_to 'Editar', edit_gasto_path(gasto), class: 'btn btn-mini' %> 
+        <%= link_to 'Eliminar', gasto_path(gasto), :method => :delete, :confirm => 'Estas seguro que desea eliminar el gasto?', class: 'btn btn-mini btn-danger',style: 'color: white; font-weight: bold;' %></td>
       </tr>
     <% end %>
   </tbody>

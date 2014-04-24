@@ -10,25 +10,28 @@
       <th>Moneda</th>
       <th>Abonada</th>
       <th>Forma de pago</th>
-      <th>Tipo reserva</th>
       <th>Cliente</th>
       <th>Habitacion</th>
       <th>Comentarios</th>
       <th></th>
-      <th></th>
-      <th></th>
+
     </tr>
   </thead>
 
   <tbody>
     <% @reservas.each do |reserva| %>
       <tr>
-        <td><%= reserva.fehca_creacion %></td>
-        <td><%= reserva.fecha_inicio_estadia %></td>
-        <td><%= reserva.fecha_fin_estadia %></td>
+        <td><% if reserva.fehca_creacion %>
+            <%= reserva.fehca_creacion.strftime('%d-%m-%Y %H:%M') %>
+          <% end %></td>
+        <td><% if reserva.fecha_inicio_estadia %>
+            <%= reserva.fecha_inicio_estadia.strftime('%d-%m-%Y %H:%M') %>
+          <% end %></td>
+        <td><% if reserva.fecha_fin_estadia %>
+            <%= reserva.fecha_fin_estadia.strftime('%d-%m-%Y %H:%M') %>
+          <% end %></td>
         <td><%= reserva.monto %></td>
         <td><%= reserva.moneda %></td>
-        <td><%= reserva.abonada %></td>
 
         <td>
           <% if reserva.abonada %>
@@ -39,13 +42,11 @@
         </td>
 
         <td><%= reserva.forma_de_pago %></td>
-        <td><%= reserva.tipo_reserva %></td>
         <td><%= reserva.cliente %></td>
         <td><%= reserva.habitacion %></td>
         <td><%= reserva.comentarios %></td>
-        <td><%= link_to 'Ver', reserva %></td>
-        <td><%= link_to 'Editar', edit_reserva_path(reserva) %></td>
-        <td><%= link_to 'Eliminar', reserva, method: :delete, data: { confirm: 'Está seguro?' } %></td>
+        <td><%= link_to 'Editar', edit_reserva_path(reserva), class: 'btn btn-mini' %> 
+        <%= link_to 'Eliminar', reserva_path(reserva), :method => :delete, :confirm => 'Estas seguro que desea eliminar la reserva?', class: 'btn btn-mini btn-danger',style: 'color: white; font-weight: bold;' %></td>
       </tr>
     <% end %>
   </tbody>
