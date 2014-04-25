@@ -61,8 +61,8 @@
 
                               <tbody ng-repeat="reserva in reservas" >
                                   <tr ng-style="set_bg(reserva)">
-                                    <td ng-style="set_color(reserva)">{{reserva.fecha_inicio_estadia | date:'medium'}}</td>
-                                    <td ng-style="set_color(reserva)">{{reserva.fecha_fin_estadia | date:'medium'}}</td>
+                                    <td ng-style="set_color(reserva)">{{reserva.fecha_inicio_estadia | date:'dd MMM, yyyy HH:mm'}}</td>
+                                    <td ng-style="set_color(reserva)">{{reserva.fecha_fin_estadia | date:'dd MMM, yyyy HH:mm'}}</td>
                                     <td ng-style="set_color(reserva)">{{reserva.cliente.nombre}}</td>
                                     <td ng-style="set_color(reserva)">{{reserva.habitacion.nombre}}</td>
                                     <td ng-style="set_color(reserva)">{{difference(reserva)}}</td>
