@@ -4,8 +4,6 @@ App.controller 'HomeCtrl', ['$scope', '$location', '$http', '$timeout',  ($scope
     $scope.reservas = data
   )
 
-  $scope.dateNow = Date.now()
-
   $scope.difference = (reserva) -> 
     dias = Math.round((Date.parse(reserva.fecha_inicio_estadia) - Date.now()) / 86400000)
     horas = Math.round((Date.parse(reserva.fecha_inicio_estadia) - Date.now()) / 3600000)

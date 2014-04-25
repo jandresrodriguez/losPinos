@@ -32,7 +32,7 @@ class ReservasController < ApplicationController
 
     respond_to do |format|
       if @reserva.save
-        format.html { redirect_to @reserva, notice: 'Reserva was successfully created.' }
+        format.html { redirect_to reservas_url, notice: 'Reserva was successfully created.' }
         format.json { render action: 'show', status: :created, location: @reserva }
       else
         format.html { render action: 'new' }
@@ -46,7 +46,7 @@ class ReservasController < ApplicationController
   def update
     respond_to do |format|
       if @reserva.update(reserva_params)
-        format.html { redirect_to @reserva, notice: 'Reserva was successfully updated.' }
+        format.html { redirect_to reservas_url, notice: 'Reserva was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

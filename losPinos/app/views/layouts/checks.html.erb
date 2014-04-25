@@ -31,19 +31,19 @@
     <link rel="stylesheet" href="/assets/css/compiled/index.css" type="text/css" media="screen" />
 
     <!-- scripts -->
-    
-
     <script src="/assets/jquery-1-10-2.js"></script>
     <script src="/assets/jquery-ui-1-10-4.js"></script>
+    
+    <script src="/assets/jquery.ui.effect.js"></script>
+    <script src="/assets/jquery.ui.effect-blind.js"></script>
+    <script src="/assets/application.js"></script>
+
+    <script src="/assets/js/theme.js"></script>
     <!-- knob -->
     <script src="/assets/js/jquery.knob.js"></script>
-    <!-- flot charts -->
-    <script src="/assets/js/jquery.flot.js"></script>
-    <script src="/assets/js/jquery.flot.stack.js"></script>
-    <script src="/assets/js/jquery.flot.resize.js"></script>
-    <script src="/assets/js/theme.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+
+    
+    
     <%= javascript_include_tag "application" %>
 
     <script type="text/javascript">
@@ -113,10 +113,7 @@
     <div id="sidebar-nav">
         <ul id="dashboard-menu">
             <li >
-                <div class="pointer">
-                    <div class="arrow"></div>
-                    <div class="arrow_border"></div>
-                </div>
+                
                 <a href="/home">
                     <i class="icon-home"></i>
                     <span>Inicio</span>
@@ -169,6 +166,10 @@
                 </ul>
             </li>
             <li class="active">
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
                 <a href="/checks/checkin">
                     <i class="icon-check"></i>
                     <span>Check-In</span>

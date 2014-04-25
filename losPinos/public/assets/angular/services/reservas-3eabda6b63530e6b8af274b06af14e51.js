@@ -1,0 +1,1 @@
+(function(){App.factory("Reserva",["$resource",function(r){return r("/reservas/:id",{id:"@id"})}])}).call(this);
