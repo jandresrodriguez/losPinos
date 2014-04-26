@@ -20,9 +20,12 @@
 				    </div>
 				  <% end %>
 				   <div class="span12 field-box">
-				    <%= f.label :cliente_id %>
-				    <% clientes_array = Cliente.all.map { |cliente| ["#{cliente.nombre} #{cliente.apellido}", cliente.id] } %>
-				    <%= f.select(:cliente_id, options_for_select(clientes_array)) %>
+				    <%= f.label :clientes %>
+
+				    <%= f.select :clientes,
+					  Cliente.all.map { |u| [u.to_s, u.apellido, u.id] },
+					  { include_blank: true },
+					  { class: 'chosen-select', multiple: true } %>
 				  </div>
 				  <div class="span12 field-box">
 				    <label >Cliente Nuevo?</label>
