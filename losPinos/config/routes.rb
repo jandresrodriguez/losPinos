@@ -7,7 +7,9 @@ LosPinos::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :reservas
+  resources :reservas do
+    get "agregar_acompaniante" => :addclient
+  end
 
   resources :tipo_reservas
 

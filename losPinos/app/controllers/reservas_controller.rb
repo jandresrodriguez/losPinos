@@ -17,6 +17,7 @@ class ReservasController < ApplicationController
   # GET /reservas/new
   def new
     @reserva = Reserva.new
+    @reserva.build_cliente
   end
 
   # GET /reservas/1/edit
@@ -63,6 +64,10 @@ class ReservasController < ApplicationController
       format.html { redirect_to reservas_url }
       format.json { head :no_content }
     end
+  end
+
+  def addclient
+    @reserva = Reserva.find(params[:reserva_id])
   end
 
   private

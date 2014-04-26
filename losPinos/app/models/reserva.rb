@@ -1,6 +1,7 @@
 class Reserva < ActiveRecord::Base
   belongs_to :tipo_reserva
   belongs_to :cliente
+  has_and_belongs_to_many :clientes
   belongs_to :habitacion
 
   accepts_nested_attributes_for :cliente
