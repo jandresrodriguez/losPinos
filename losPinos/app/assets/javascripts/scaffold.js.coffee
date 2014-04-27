@@ -6,4 +6,4 @@ $ ->
     no_results_text: 'No se encontraron resultados'
     placeholder_text_multiple: "Seleccione acompaniantes"
     max_selected_options: 5
-    width: '500px'
+    width: '750px'
