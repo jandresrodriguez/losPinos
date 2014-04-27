@@ -1,4 +1,4 @@
-$ ->
+$(document).ready ->
   # enable chosen js
 
   $('.chosen-select').chosen

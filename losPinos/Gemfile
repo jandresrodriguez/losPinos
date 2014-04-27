@@ -33,6 +33,8 @@ gem "font-awesome-rails"
 
 gem 'chosen-rails'
 
+gem 'jquery-turbolinks'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
