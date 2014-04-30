@@ -7,3 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 AdminUser.create(usuario: 'admin', contrasena: 'admin')
+
+TipoReserva.create(nombre: 'Local')
+TipoReserva.create(nombre: 'Booking.com')

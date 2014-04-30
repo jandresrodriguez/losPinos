@@ -8,7 +8,7 @@
 		<div class="span9 with-sidebar">
 		    <div class="container">
 				
-				<%= form_for(@reserva) do |f| %>
+				<%= form_for @reserva,  :url => {:action => "addacompaniante"}   do |f| %>
 				  <% if @reserva.errors.any? %>
 				    <div id="error_explanation">
 				      <h2><%= pluralize(@reserva.errors.count, "error") %> prohibited this reserva from being saved:</h2>

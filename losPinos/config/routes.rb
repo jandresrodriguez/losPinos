@@ -9,6 +9,9 @@ LosPinos::Application.routes.draw do
 
   resources :reservas do
     get "agregar_acompaniante" => :addclient
+    collection do
+        patch ':reserva_id/agregar_acompaniante', :action => 'addacompaniante'
+    end
   end
 
   resources :tipo_reservas

@@ -5,6 +5,7 @@ class Reserva < ActiveRecord::Base
   belongs_to :habitacion
 
   accepts_nested_attributes_for :cliente
+  accepts_nested_attributes_for :clientes
 
   # validates :monto, :moneda, presence: true
 
