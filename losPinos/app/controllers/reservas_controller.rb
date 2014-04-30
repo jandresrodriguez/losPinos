@@ -75,7 +75,7 @@ class ReservasController < ApplicationController
 
     # render :nothing => true
     # Vuelve al index
-    #redirect_to reservas_url, notice: 'La reserva fue confirmada.'
+    redirect_to reservas_url, notice: 'La reserva fue confirmada.'
   end
 
   def addclient

@@ -35,21 +35,21 @@
   <div class="span12 field-box">
     <%= f.label :tipo_reserva %>
     <%= f.select :tipo_reserva, 
-    TipoReserva.all.map { |t| ["#{t.nombre}", t.id]},
+    TipoReserva.all,
     { include_blank: false, selected: @reserva.tipo_reserva },
     {class: 'chz-select-tipo' } %>
   </div>
   <div class="span12 field-box">
     <%= f.label :cliente %>
     <%= f.select :cliente, 
-    Cliente.all.map { |c| ["#{c.nombre} #{c.apellido}", c.id]}, 
+    Cliente.all, 
     { include_blank: false , selected: @reserva.cliente },
     {class: 'chz-select-cliente' } %>
   </div>
   <div class="span12 field-box">
     <%= f.label :habitacion %>
     <%= f.select :habitacion, 
-    Habitacion.all.map { |h| ["#{h.nombre}", h.id]},
+    Habitacion.all,
     { include_blank: false }, 
     {class: 'chz-select' } %>
   </div>
