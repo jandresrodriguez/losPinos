@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20140426221745) do
     t.string   "pais_residencia"
   end
 
+  create_table "clientes_reservas", force: true do |t|
+    t.integer  "reserva_id"
+    t.integer  "cliente_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "clientes_reservas", ["cliente_id"], name: "index_clientes_reservas_on_cliente_id"
+  add_index "clientes_reservas", ["reserva_id"], name: "index_clientes_reservas_on_reserva_id"
+
   create_table "gastos", force: true do |t|
     t.date     "fecha"
     t.string   "rubro"

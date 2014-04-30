@@ -33,23 +33,32 @@
   </div>
 
   <div class="span12 field-box">
-    <%= f.label :tipo_reserva_id %>
-    <%= f.select(:tipo_reserva_id, options_for_select(TipoReserva.find(:all, :conditions => {:habilitada => true}))) %>
+    <%= f.label :tipo_reserva %>
+    <%= f.select :tipo_reserva, 
+    TipoReserva.all.map { |t| ["#{t.nombre}", t.id]},
+    { include_blank: false, selected: @reserva.tipo_reserva },
+    {class: 'chz-select-tipo' } %>
   </div>
   <div class="span12 field-box">
-    <%= f.label :cliente_id %>
-    <% clientes_array = Cliente.all.map { |cliente| ["#{cliente.nombre} #{cliente.apellido}", cliente.id] } %>
-    <%= f.select(:cliente_id, options_for_select(clientes_array)) %>
+    <%= f.label :cliente %>
+    <%= f.select :cliente, 
+    Cliente.all.map { |c| ["#{c.nombre} #{c.apellido}", c.id]}, 
+    { include_blank: false , selected: @reserva.cliente },
+    {class: 'chz-select-cliente' } %>
   </div>
   <div class="span12 field-box">
-    <%= f.label :habitacion_id %>
-    <%= f.collection_select(:habitacion_id, Habitacion.all, :id, :nombre) %>
+    <%= f.label :habitacion %>
+    <%= f.select :habitacion, 
+    Habitacion.all.map { |h| ["#{h.nombre}", h.id]},
+    { include_blank: false }, 
+    {class: 'chz-select' } %>
   </div>
   <div class="span12 field-box textarea">
     <%= f.label :comentarios %>
     <%= f.text_area :comentarios, class: "span9" %>
     <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
   </div>
+
   <div class="span11 field-box actions">
     <%= f.submit "Crear reserva", class: "btn-glow primary" %>
     <span>OR</span>

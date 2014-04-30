@@ -11,8 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.ui.effect-blind
+//= require chosen-jquery
+//= require scaffold
 //= require turbolinks
 //= require angular
 //= require main

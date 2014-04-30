@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 1.2'
 
 gem "font-awesome-rails"
 
+gem 'chosen-rails'
+
+gem 'jquery-turbolinks'
 
 
 group :doc do

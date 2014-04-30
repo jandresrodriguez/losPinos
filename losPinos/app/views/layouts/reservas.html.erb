@@ -29,7 +29,6 @@
     <!-- this page specific styles -->
 
     <link rel="stylesheet" href="/assets/css/compiled/index.css" type="text/css" media="screen" />
-
     <!-- scripts -->
     <script src="/assets/jquery-1-10-2.js"></script>
     <script src="/assets/jquery-ui-1-10-4.js"></script>
@@ -37,15 +36,15 @@
     <script src="/assets/jquery.ui.effect.js"></script>
     <script src="/assets/jquery.ui.effect-blind.js"></script>
     <script src="/assets/application.js"></script>
-    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/scaffold.js"></script>
 
-    
+    <script src="/assets/js/theme.js"></script>
     <!-- knob -->
     <script src="/assets/js/jquery.knob.js"></script>
-    <%= javascript_include_tag "application" %>
 
     <script type="text/javascript">
       $(document).ready(function(){
+        $('.chosen-select').trigger("chosen:updated");
         $("#cliente_form").hide();
         $("#con_cliente").bind('change', function(){
             if($(this).is(':checked')){
@@ -69,9 +68,6 @@
     <![endif]--> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
-      <header>
-    Los Pinos
-     </header>
 
 
     <!-- navbar -->

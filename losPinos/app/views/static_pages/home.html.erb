@@ -56,6 +56,7 @@
                                   <th>Cliente</th>
                                   <th>Habitacion</th>
                                   <th>Tiempo restante</th>
+                                  <th></th>
                                 </tr>
                               </thead>
 
@@ -66,6 +67,7 @@
                                     <td ng-style="set_color(reserva)">{{reserva.cliente.nombre}}</td>
                                     <td ng-style="set_color(reserva)">{{reserva.habitacion.nombre}}</td>
                                     <td ng-style="set_color(reserva)">{{difference(reserva)}}</td>
+                                    <td><%= link_to 'Check in', class: 'btn btn-mini' %> 
                                   </tr>
                               </tbody>
                             </table>

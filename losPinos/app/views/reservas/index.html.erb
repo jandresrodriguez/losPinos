@@ -45,12 +45,13 @@
         <td><%= reserva.cliente %></td>
         <td><%= reserva.habitacion %></td>
         <td><%= reserva.comentarios %></td>
+
         <td><%= link_to 'Editar', edit_reserva_path(reserva), class: 'btn btn-mini' %> 
         <%= link_to 'Eliminar', reserva_path(reserva), :method => :delete, :confirm => 'Estas seguro que desea eliminar la reserva?', class: 'btn btn-mini btn-danger',style: 'color: white; font-weight: bold;' %>
         <% if !reserva.confirmada %>
           <%= button_to 'Confirmar', reserva_confirmar_path(reserva), :method => :post, :remote => true, class: 'btn btn-mini btn-success' %>
-
         <% end %>
+        <%= link_to 'Agregar Acompaniante', addclient_path(reserva), class: 'btn btn-mini' %>
         </td>
       </tr>
     <% end %>

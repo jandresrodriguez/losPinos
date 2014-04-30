@@ -1,0 +1,40 @@
+<div id="pad-wrapper" class="new-user">
+	<div class="row-fluid header">
+		<h3>Check in</h3>
+	</div>
+
+	<div class="row-fluid form-wrapper">
+		<!-- left column -->
+		<div class="span9 with-sidebar">
+		    <div class="container">
+				
+				<%= form_for @reserva,  :url => {:action => "addacompaniante"}   do |f| %>
+				  <% if @reserva.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@reserva.errors.count, "error") %> prohibited this reserva from being saved:</h2>
+				      <ul>
+				        <% @reserva.errors.full_messages.each do |msg| %>
+				          <li><%= msg %></li>
+				        <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
+				   <div class="span12 field-box">
+				    <%= f.label :clientes %>
+
+				    <%= f.select :clientes,
+					  Cliente.all.map { |u| [u.to_s, u.id] },
+					  { include_blank: true },
+					  { class: 'chosen-select', multiple: true } %>
+				  </div>
+				  <div class="span11 field-box actions" style="width: 900px;">
+				    <%= f.submit "Agregar Acompaniante", class: "btn-glow primary" %>
+				    <span>OR</span>
+				    <input type="reset" value="Cancelar" class="reset" />
+				  </div>
+
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

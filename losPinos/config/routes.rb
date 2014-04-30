@@ -7,7 +7,12 @@ LosPinos::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :reservas
+  resources :reservas do
+    get "agregar_acompaniante" => :addclient
+    collection do
+        patch ':reserva_id/agregar_acompaniante', :action => 'addacompaniante'
+    end
+  end
 
   resources :reservas do
     post "confirmar" => :confirmar
