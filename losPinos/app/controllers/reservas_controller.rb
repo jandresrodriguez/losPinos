@@ -79,9 +79,9 @@ class ReservasController < ApplicationController
     params[:reserva][:clientes].each do |acompaniante|
       if !acompaniante.nil? && !acompaniante.empty?
         @reserva.clientes << Cliente.find(acompaniante)
-        redirect_to reservas_url
       end
     end
+    redirect_to reservas_url
   end
 
   private
