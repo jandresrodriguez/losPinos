@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140420232411) do
+ActiveRecord::Schema.define(version: 20140426221745) do
 
   create_table "admin_users", force: true do |t|
     t.string   "usuario"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20140420232411) do
     t.string   "comentarios"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "confirmada"
   end
 
   add_index "reservas", ["cliente_id"], name: "index_reservas_on_cliente_id"

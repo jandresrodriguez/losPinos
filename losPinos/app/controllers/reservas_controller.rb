@@ -65,6 +65,18 @@ class ReservasController < ApplicationController
     end
   end
 
+  def confirmar
+    @reserva = Reserva.find(params[:reserva_id])
+    @reserva.confirmada = true
+    @reserva.save
+
+
+    # render :nothing => true
+    # Vuelve al index
+    #redirect_to reservas_url, notice: 'La reserva fue confirmada.'
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_reserva

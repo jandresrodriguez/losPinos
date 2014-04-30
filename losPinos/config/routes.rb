@@ -9,6 +9,10 @@ LosPinos::Application.routes.draw do
 
   resources :reservas
 
+  resources :reservas do
+    post "confirmar" => :confirmar
+  end
+
   resources :tipo_reservas
 
   resources :tarjeta
