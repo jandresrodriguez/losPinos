@@ -47,6 +47,7 @@ LosPinos::Application.routes.draw do
   match '/home1',  to: 'static_pages#action',         via: 'post'
 
   get "/ultimas_reservas(.:format)" => "static_pages#ultimas"
+  get "/reservas_display(.:format)" => "reservas#display"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

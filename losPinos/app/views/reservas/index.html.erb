@@ -1,61 +1,75 @@
 <h1 style="margin-top: 20px; margin-left: 10px; margin-bottom: 20px;">Listado de reservas</h1>
 
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Fecha creacion</th>
-      <th>Fecha inicio estadia</th>
-      <th>Fecha fin estadia</th>
-      <th>Monto</th>
-      <th>Moneda</th>
-      <th>Abonada</th>
-      <th>Forma de pago</th>
-      <th>Cliente</th>
-      <th>Habitacion</th>
-      <th>Comentarios</th>
-      <th></th>
+<div class="col-xs-6">
+  <div class="right-inner-addon">
+    <i class="icon-search"></i>
+    <input ng-model="search.nombre" type="search"
+               class="form-control" 
+               placeholder="Buscar" />
+  </div>
+</div>
 
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @reservas.each do |reserva| %>
+<div ng-controller="ReservaController">
+  <table class="table table-striped table-bordered">
+    <thead>
       <tr>
-        <td><% if reserva.fehca_creacion %>
-            <%= reserva.fehca_creacion.strftime('%d-%m-%Y %H:%M') %>
-          <% end %></td>
-        <td><% if reserva.fecha_inicio_estadia %>
-            <%= reserva.fecha_inicio_estadia.strftime('%d-%m-%Y %H:%M') %>
-          <% end %></td>
-        <td><% if reserva.fecha_fin_estadia %>
-            <%= reserva.fecha_fin_estadia.strftime('%d-%m-%Y %H:%M') %>
-          <% end %></td>
-        <td><%= reserva.monto %></td>
-        <td><%= reserva.moneda %></td>
+        <th>Estado</th>
+        <th>Fecha creacion</th>
+        <th>Fecha inicio estadia</th>
+        <th>Fecha fin estadia</th>
+        <th>Monto</th>
+        <th>Moneda</th>
+        <th>Abonada</th>
+        <th>Forma de pago</th>
+        <th>Cliente</th>
+        <th>Habitacion</th>
+        <th>Comentarios</th>
+        <th></th>
 
-        <td>
-          <% if reserva.abonada %>
-            <%= 'Abonada' %>
-          <% else %>
-            <%= 'No abonada' %>
-          <% end %>
-        </td>
-
-        <td><%= reserva.forma_de_pago %></td>
-        <td><%= reserva.cliente %></td>
-        <td><%= reserva.habitacion %></td>
-        <td><%= reserva.comentarios %></td>
-
-        <td><%= link_to 'Editar', edit_reserva_path(reserva), class: 'btn btn-mini' %> 
-        <%= link_to 'Eliminar', reserva_path(reserva), :method => :delete, :confirm => 'Estas seguro que desea eliminar la reserva?', class: 'btn btn-mini btn-danger',style: 'color: white; font-weight: bold;' %>
-        <% if !reserva.confirmada %>
-          <%= button_to 'Confirmar', reserva_confirmar_path(reserva), :method => :post, class: 'btn btn-mini btn-success' %>
-        <% end %>
-        <%= link_to 'Agregar Acompaniante', addclient_path(reserva), class: 'btn btn-mini' %>
-        </td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <tr ng-repeat="reserva in reservas | filter: search.nombre">
+        <!--filter: {habitacion.nombre: search.nombre }-->
+        <td>
+          <span ng-if="reserva.confirmada">
+            <span class="label label-success">
+              Confirmada
+            </span>
+          </span>
+          <span ng-if="!reserva.confirmada">
+            <span class="label label-warning">
+              Pendiente
+            </span>
+          </span>
+        </td>
+        <td>{{ reserva.fehca_creacion | date:'dd MMM, yyyy HH:mm' }}</td>
+        <td>{{ reserva.fecha_inicio_estadia | date:'dd MMM, yyyy HH:mm' }}</td>
+        <td>{{ reserva.fecha_fin_estadia | date:'dd MMM, yyyy HH:mm' }}</td>
+        <td>{{ reserva.monto }}</td>
+        <td>{{ reserva.moneda }}</td>
+        <td>
+          <span ng-if="reserva.abonada">Abonada</span>
+          <span ng-if="!reserva.abonada">No abonada</span>
+        </td>
+        <td>{{ reserva.forma_de_pago }}</td>
+        <td>{{ reserva.cliente.nombre }}</td>
+        <td>{{ reserva.habitacion.nombre }}</td>
+        <td>{{ reserva.comentarios }}</td>
+        <td>
+          <a class="btn btn-mini" ng-href="/reservas/{{reserva.id}}/edit">Editar</a>
+          <a class="btn btn-mini btn-danger" data-confirm="Estas seguro que desea eliminar la reserva?" data-method="delete" href="/reservas/{{reserva.id}}/" rel="nofollow" style="color: white; font-weight: bold;">Eliminar</a>
+          <span ng-if="!reserva.confirmada">
+            <a class="btn btn-mini btn-success" ng-href="/reservas/{{reserva.id}}/confirmar" data-method="post">Confirmar</a>
+          </span>
+          <a class="btn btn-mini" ng-href="/reservas/{{reserva.id}}/agregar_acompaniante">Agregar acompaniante</a>
+        </td>
+
+      </tr>
+    </tbody>
+  
+</div>
 
 <br>
+
+

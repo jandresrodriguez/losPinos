@@ -9,6 +9,12 @@ class ReservasController < ApplicationController
     @reservas = Reserva.all
   end
 
+  # Display reservas with cliente, habitacion
+  def display
+    @reservas = Reserva.all
+    render json: @reservas, include: [:cliente, :habitacion]
+  end
+
   # GET /reservas/1
   # GET /reservas/1.json
   def show

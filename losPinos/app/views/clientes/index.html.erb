@@ -6,7 +6,7 @@
         <i class="icon-search"></i>
         <input ng-model="search.nombre" type="search"
                class="form-control" 
-               placeholder="Search" />
+               placeholder="Buscar" />
     </div>
 </div>
 
@@ -38,7 +38,7 @@
           <td>{{ cliente.comentarios }}</td>
           <td>{{ cliente.email }}</td>
           <td><a class="btn btn-mini" ng-href="/clientes/{{cliente.id}}/edit">Editar</a>
-            <a class="btn btn-mini btn-danger" data-confirm="Estas seguro que desea eliminar la reserva?" data-method="delete" href="/clientes/{{cliente.id}}/" rel="nofollow" style="color: white; font-weight: bold;">Eliminar</a></td>
+            <a class="btn btn-mini btn-danger" data-confirm="Estas seguro que desea eliminar el cliente?" data-method="delete" href="/clientes/{{cliente.id}}/" rel="nofollow" style="color: white; font-weight: bold;">Eliminar</a></td>
         </tr>
     </tbody>
   </table>
