@@ -1,36 +1,47 @@
 <h1 style="margin-top: 20px; margin-left: 10px; margin-bottom: 20px;" >Listado de clientes</h1>
 
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Fecha nac</th>
-      <th>Nacionalidad</th>
-      <th>Documento</th>
-      <th>Documento tipo</th>
-      <th>Comentarios</th>
-      <th>Email</th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @clientes.each do |cliente| %>
+<div class="col-xs-6" >
+    <div class="right-inner-addon">
+        <i class="icon-search"></i>
+        <input ng-model="search.nombre" type="search"
+               class="form-control" 
+               placeholder="Search" />
+    </div>
+</div>
+
+<div ng-controller="ClienteController">
+  <table class="table table-striped table-bordered">
+    <thead>
       <tr>
-        <td><%= cliente.nombre %></td>
-        <td><%= cliente.apellido %></td>
-        <td><%= cliente.fecha_nac.strftime("%m-%d-%Y") %></td>
-        <td><%= cliente.nacionalidad %></td>
-        <td><%= cliente.documento %></td>
-        <td><%= cliente.documento_tipo %></td>
-        <td><%= cliente.comentarios %></td>
-        <td><%= cliente.email %></td>
-        <td><%= link_to 'Editar', edit_cliente_path(cliente), class: 'btn btn-mini' %> 
-        <%= link_to 'Eliminar', cliente_path(cliente), :method => :delete, :confirm => 'Estas seguro que desea eliminar el cliente?', class: 'btn btn-mini btn-danger',style: 'color: white; font-weight: bold;' %></td>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Fecha nac</th>
+        <th>Nacionalidad</th>
+        <th>Documento</th>
+        <th>Documento tipo</th>
+        <th>Comentarios</th>
+        <th>Email</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody >
+
+        <tr ng-repeat="cliente in clientes | filter: search.nombre ">
+          <td>{{ cliente.nombre }}</td>
+          <td>{{ cliente.apellido }}</td>
+          <td>{{ cliente.fecha_nac | date:'dd-MM-yyyy' }}</td>
+          <td>{{ cliente.nacionalidad }}</td>
+          <td>{{ cliente.documento }}</td>
+          <td>{{ cliente.documento_tipo }}</td>
+          <td>{{ cliente.comentarios }}</td>
+          <td>{{ cliente.email }}</td>
+          <td><a class="btn btn-mini" ng-href="/clientes/{{cliente.id}}/edit">Editar</a>
+            <a class="btn btn-mini btn-danger" data-confirm="Estas seguro que desea eliminar la reserva?" data-method="delete" href="/clientes/{{cliente.id}}/" rel="nofollow" style="color: white; font-weight: bold;">Eliminar</a></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 
 <br>

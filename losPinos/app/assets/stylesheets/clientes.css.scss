@@ -1,3 +1,22 @@
 // Place all the styles related to the Clientes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.right-inner-addon {
+    position: relative;
+    width: 220px;
+}
+.right-inner-addon input {
+    padding-right: 30px;    
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+.right-inner-addon input {
+    border-radius:5px;
+}
