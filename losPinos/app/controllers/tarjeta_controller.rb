@@ -28,7 +28,7 @@ class TarjetaController < ApplicationController
 
     respond_to do |format|
       if @tarjetum.save
-        format.html { redirect_to @tarjetum, notice: 'Tarjetum was successfully created.' }
+        format.html { redirect_to @tarjetum, notice: 'Tarjeta creada con exito.' }
         format.json { render action: 'show', status: :created, location: @tarjetum }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class TarjetaController < ApplicationController
   def update
     respond_to do |format|
       if @tarjetum.update(tarjetum_params)
-        format.html { redirect_to @tarjetum, notice: 'Tarjetum was successfully updated.' }
+        format.html { redirect_to @tarjetum, notice: 'Tarjeta modificada con exito.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

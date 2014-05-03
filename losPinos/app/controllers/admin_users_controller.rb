@@ -28,7 +28,7 @@ class AdminUsersController < ApplicationController
 
     respond_to do |format|
       if @admin_user.save
-        format.html { redirect_to @admin_user, notice: 'Admin user was successfully created.' }
+        format.html { redirect_to @admin_user, notice: 'Usuario creado con exito.' }
         format.json { render action: 'show', status: :created, location: @admin_user }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class AdminUsersController < ApplicationController
   def update
     respond_to do |format|
       if @admin_user.update(admin_user_params)
-        format.html { redirect_to @admin_user, notice: 'Admin user was successfully updated.' }
+        format.html { redirect_to @admin_user, notice: 'Usuario modificado con exito.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
