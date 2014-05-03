@@ -10,7 +10,7 @@ class Reserva < ActiveRecord::Base
 
   # validates :monto, :moneda, presence: true
 
-  #validate :fechas_coherentes
+  validate :fechas_coherentes
 
   validates :fecha_inicio_estadia, presence: true, allow_blank: false
   validates :fecha_fin_estadia, presence: true, allow_blank: false

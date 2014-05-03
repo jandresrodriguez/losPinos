@@ -46,16 +46,16 @@
 				  <div class="span12 field-box">
 				    <%= f.label :tipo_reserva %>
 				    <%= f.select :tipo_reserva, 
-				    TipoReserva.all,
-				    { include_blank: false },
+				    options_for_select(TipoReserva.all.map { |t| [t.nombre, t.id] }),
+				    { include_blank: true },
 				    {class: 'chz-select-tipo' } %>
 				  </div>
 				  
 				  <div class="span12 field-box">
 				    <%= f.label :habitacion %>
 				    <%= f.select :habitacion, 
-				    options_for_select(Habitacion.all),
-				    { include_blank: false }, 
+				    options_for_select(Habitacion.all.map { |h| [h.nombre, h.id] }),
+				    { include_blank: true }, 
 				    {class: 'chz-select' } %>
 				  </div>
 				  <div class="span12 field-box textarea">
@@ -66,8 +66,8 @@
 				  <div class="span12 field-box">
 				    <%= f.label :cliente %>
 				    <%= f.select :cliente, 
-				    options_for_select( Cliente.all ), 
-				    { include_blank: false  },
+				    options_for_select( Cliente.all.map { |c| [c.to_s, c.id] } ), 
+				    { include_blank: true  },
 				    {class: 'chz-select-cliente' } %>
 				  </div>
 

@@ -33,7 +33,12 @@ class ReservasController < ApplicationController
   # POST /reservas.json
   def create
     @reserva = Reserva.new(reserva_params)
-    # Seteo el resto de los parametros
+    @tipo_reserva = TipoReserva.find(params[:reserva][:tipo_reserva])
+    @habitacion = Habitacion.find(params[:reserva][:habitacion])
+    @cliente = Cliente.find(params[:reserva][:cliente])
+    @reserva.tipo_reserva = @tipo_reserva
+    @reserva.habitacion = @habitacion
+    @reserva.cliente = @cliente
     @reserva.fehca_creacion = Time.now
 
     respond_to do |format|
@@ -66,8 +71,13 @@ class ReservasController < ApplicationController
     @reserva = Reserva.find(params[:id])
     puts "RESERVAAAA   #{@reserva.id} #{@reserva.confirmada} #{params[:confirmada]}"
     @reserva.confirmada = params[:confirmada]
-    @reserva.update(@reserva)
-    redirect_to reservas_url, notice: 'Reserva was successfully updated.'
+    puts "RESERVAAAA 222222222222222   #{@reserva.id} #{@reserva.confirmada}"
+    Reserva.update(@reserva.id, confirmada: @reserva.confirmada)
+    respond_to do |format|
+      format.html { redirect_to reservas_url }
+      format.json { head :no_content }
+    end
+    
   end
 
   # DELETE /reservas/1
@@ -118,7 +128,6 @@ class ReservasController < ApplicationController
     def reserva_params
       params.require(:reserva).permit( :id, :created_at, :updated_at,  :fehca_creacion, :fecha_inicio_estadia, :fecha_fin_estadia, :monto, :confirmada, :moneda, :abonada, 
         :forma_de_pago, :tipo_reserva_id, :cliente_id, :habitacion_id, :comentarios, clientes_attributes: [:id, :name],
-        habitacion: [:nombre], tipo_reserva: [:nombre],
         cliente: [:nombre, :apellido, :fecha_nac, :nacionalidad, :documento, :documento_tipo, :comentarios, :email])
     end
 end
