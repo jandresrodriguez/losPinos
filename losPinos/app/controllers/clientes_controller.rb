@@ -28,7 +28,7 @@ class ClientesController < ApplicationController
 
     respond_to do |format|
       if @cliente.save
-        format.html { redirect_to clientes_url, notice: 'Cliente was successfully created.' }
+        format.html { redirect_to clientes_url, notice: 'Cliente creado con exito.' }
         format.json { render action: 'show', status: :created, location: @cliente }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class ClientesController < ApplicationController
   def update
     respond_to do |format|
       if @cliente.update(cliente_params)
-        format.html { redirect_to clientes_url, notice: 'Cliente was successfully updated.' }
+        format.html { redirect_to clientes_url, notice: 'Cliente modificado con exito.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -28,7 +28,7 @@ class TipoReservasController < ApplicationController
 
     respond_to do |format|
       if @tipo_reserva.save
-        format.html { redirect_to @tipo_reserva, notice: 'Tipo reserva was successfully created.' }
+        format.html { redirect_to @tipo_reserva, notice: 'Tipo de reserva creada con exito.' }
         format.json { render action: 'show', status: :created, location: @tipo_reserva }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class TipoReservasController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_reserva.update(tipo_reserva_params)
-        format.html { redirect_to @tipo_reserva, notice: 'Tipo reserva was successfully updated.' }
+        format.html { redirect_to @tipo_reserva, notice: 'Tipo de reserva modificada con exito.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
