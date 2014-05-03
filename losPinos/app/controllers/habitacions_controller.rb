@@ -61,6 +61,40 @@ class HabitacionsController < ApplicationController
     end
   end
 
+  def habitaciones_estado
+    @diaReferencia = Date.today + (params[:cantidad].to_i * 7)
+    @dias = []
+    @habitaciones_estado = []
+    @diaInicioSemana = @diaReferencia.beginning_of_week
+    @diaFinSemana = @diaReferencia.end_of_week
+
+    # Primero cargo la lista de dias
+    (@diaInicioSemana .. @diaFinSemana).each do |fecha|
+      @dias.push({dia: fecha})
+    end
+
+    # Para cada habitacion disponible recorro los dias y controlo su estado
+    Habitacion.where(disponible: true).each do |habitacion|
+      
+      @dias_estado = []
+      (@diaInicioSemana .. @diaFinSemana).each do |fecha|
+
+        @libre = true
+        if Reserva.where("fecha_inicio_estadia <= ? & fecha_fin_estadia >= ? & habitacion_id == ?", fecha, fecha, habitacion).exists?
+          @libre = false
+        end
+        @dias_estado.push({dia: fecha, libre: @libre})
+
+      end
+      
+      @habitaciones_estado.push({habitacion: habitacion, dias_estado: @dias_estado})
+    end
+
+    @lista = {dias: @dias, habitaciones_estado:@habitaciones_estado}
+    render json: @lista
+    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_habitacion

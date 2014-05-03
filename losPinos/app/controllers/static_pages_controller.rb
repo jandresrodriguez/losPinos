@@ -37,5 +37,8 @@ class StaticPagesController < ApplicationController
 		 end
 	end
 
+	def control_habitaciones 
+
+	end
 
 end
