@@ -1,0 +1,40 @@
+
+<h1 class="titulo"> Control de habitaciones </h1>
+
+<div ng-controller="ControlHabitacionesController">
+  <table class="calendario" cellpadding="10" cellspacing="0">
+    <thead>
+      <tr>
+        <th><a class="cambioSemana" ng-click="retroceder_semana()"><</a></th>
+        <th colspan="6">
+          
+        </th>
+        <th><a class="cambioSemana" ng-click="avanzar_semana()">></a></th>
+      </tr>
+      <tr class="dias">
+        <th>Habitación</th>
+        <th ng-repeat="item in dias_habitaciones.dias">
+          <span> {{ item.dia }} </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in dias_habitaciones.habitaciones_estado">
+          <td class="habitacion"> {{ item.habitacion.nombre }} </td>
+          <td ng-class="set_class(item.dias_estado[0].libre)"></td>
+          <td ng-class="set_class(item.dias_estado[1].libre)"></td>
+          <td ng-class="set_class(item.dias_estado[2].libre)"></td>
+          <td ng-class="set_class(item.dias_estado[3].libre)"></td>
+          <td ng-class="set_class(item.dias_estado[4].libre)"></td>
+          <td ng-class="set_class(item.dias_estado[5].libre)"></td>
+          <td ng-class="set_class(item.dias_estado[6].libre)"></td>
+        </tr>
+    </tbody>
+  </table>
+
+  <dia class="referencias">
+    <div> Verdes - Libres </div>
+    <div> Rojas - Ocupadas </div>
+  </dia>
+
+</div>
