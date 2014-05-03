@@ -4,18 +4,19 @@ class Reserva < ActiveRecord::Base
   has_and_belongs_to_many :clientes
   belongs_to :habitacion
 
+  
   accepts_nested_attributes_for :cliente
   accepts_nested_attributes_for :clientes
 
   # validates :monto, :moneda, presence: true
 
-  validate :fechas_coherentes
+  #validate :fechas_coherentes
 
   validates :fecha_inicio_estadia, presence: true, allow_blank: false
   validates :fecha_fin_estadia, presence: true, allow_blank: false
   validates :monto, presence: true, allow_blank: false
-  validates :cliente, presence: true, allow_blank: false
-  validates :habitacion, presence: true, allow_blank: false
+  validate :cliente, allow_blank: false
+  validate :habitacion, allow_blank: false
 
   def fechas_coherentes
   	if fecha_inicio_estadia>=fecha_fin_estadia

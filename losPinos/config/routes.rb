@@ -49,6 +49,8 @@ LosPinos::Application.routes.draw do
   get "/ultimas_reservas(.:format)" => "static_pages#ultimas"
   get "/reservas_display(.:format)" => "reservas#display"
 
+  put "/reservas_display/:id(.:format)" => "reservas#updateReservas"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

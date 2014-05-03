@@ -23,7 +23,6 @@ class ReservasController < ApplicationController
   # GET /reservas/new
   def new
     @reserva = Reserva.new
-    @reserva.build_cliente
   end
 
   # GET /reservas/1/edit
@@ -63,6 +62,14 @@ class ReservasController < ApplicationController
     end
   end
 
+  def updateReservas
+    @reserva = Reserva.find(params[:id])
+    puts "RESERVAAAA   #{@reserva.id} #{@reserva.confirmada} #{params[:confirmada]}"
+    @reserva.confirmada = params[:confirmada]
+    @reserva.update(@reserva)
+    redirect_to reservas_url, notice: 'Reserva was successfully updated.'
+  end
+
   # DELETE /reservas/1
   # DELETE /reservas/1.json
   def destroy
@@ -76,12 +83,12 @@ class ReservasController < ApplicationController
   def confirmar
     @reserva = Reserva.find(params[:reserva_id])
     @reserva.confirmada = true
-    @reserva.save
+    #@reserva.save
 
 
     # render :nothing => true
     # Vuelve al index
-    redirect_to reservas_url, notice: 'La reserva fue confirmada.'
+    #redirect_to reservas_url, notice: 'La reserva fue confirmada.'
   end
 
   def addclient
@@ -109,8 +116,9 @@ class ReservasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reserva_params
-      params.require(:reserva).permit( :fehca_creacion, :fecha_inicio_estadia, :fecha_fin_estadia, :monto, :moneda, :abonada, 
+      params.require(:reserva).permit( :id, :created_at, :updated_at,  :fehca_creacion, :fecha_inicio_estadia, :fecha_fin_estadia, :monto, :confirmada, :moneda, :abonada, 
         :forma_de_pago, :tipo_reserva_id, :cliente_id, :habitacion_id, :comentarios, clientes_attributes: [:id, :name],
-        cliente_attributes: [:nombre, :apellido, :fecha_nac, :nacionalidad, :documento, :documento_tipo, :comentarios, :email])
+        habitacion: [:nombre], tipo_reserva: [:nombre],
+        cliente: [:nombre, :apellido, :fecha_nac, :nacionalidad, :documento, :documento_tipo, :comentarios, :email])
     end
 end

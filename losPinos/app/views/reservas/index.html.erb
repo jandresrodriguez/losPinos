@@ -60,7 +60,7 @@
           <a class="btn btn-mini" ng-href="/reservas/{{reserva.id}}/edit">Editar</a>
           <a class="btn btn-mini btn-danger" data-confirm="Estas seguro que desea eliminar la reserva?" data-method="delete" href="/reservas/{{reserva.id}}/" rel="nofollow" style="color: white; font-weight: bold;">Eliminar</a>
           <span ng-if="!reserva.confirmada">
-            <a class="btn btn-mini btn-success" ng-href="/reservas/{{reserva.id}}/confirmar" data-method="post">Confirmar</a>
+            <a class="btn btn-mini btn-success" ng-click="update1(reserva)">Confirmar</a>
           </span>
           <a class="btn btn-mini" ng-href="/reservas/{{reserva.id}}/agregar_acompaniante">Agregar acompaniante</a>
         </td>

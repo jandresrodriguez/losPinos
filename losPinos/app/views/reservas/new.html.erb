@@ -27,7 +27,7 @@
 				  </div>
 				  <div class="span12 field-box">
 				    <%= f.label :fecha_fin_estadia %>
-				    <%= f.datetime_select :fecha_inicio_estadia, order: [:day, :month, :year], start_year:Time.now.year , end_year: Time.now.year + 10 %>
+				    <%= f.datetime_select :fecha_fin_estadia, order: [:day, :month, :year], start_year:Time.now.year , end_year: Time.now.year + 10 %>
 				  </div>
 
 				  <div class="span12 field-box">
@@ -46,15 +46,15 @@
 				  <div class="span12 field-box">
 				    <%= f.label :tipo_reserva %>
 				    <%= f.select :tipo_reserva, 
-				    TipoReserva.all.map { |t| ["#{t.nombre}", t.id]},
-				    { include_blank: false }, 
+				    TipoReserva.all,
+				    { include_blank: false },
 				    {class: 'chz-select-tipo' } %>
 				  </div>
 				  
 				  <div class="span12 field-box">
 				    <%= f.label :habitacion %>
 				    <%= f.select :habitacion, 
-				    Habitacion.all.map { |h| ["#{h.nombre}", h.id]},
+				    options_for_select(Habitacion.all),
 				    { include_blank: false }, 
 				    {class: 'chz-select' } %>
 				  </div>
@@ -66,65 +66,11 @@
 				  <div class="span12 field-box">
 				    <%= f.label :cliente %>
 				    <%= f.select :cliente, 
-				    Cliente.all.map { |c| ["#{c.nombre} #{c.apellido}", c.id]}, 
-				    { include_blank: false }, 
+				    options_for_select( Cliente.all ), 
+				    { include_blank: false  },
 				    {class: 'chz-select-cliente' } %>
 				  </div>
-				  <div class="span12 field-box">
-				    <label >Cliente Nuevo?</label>
-				    <%= check_box_tag 'con_cliente', 'ClienteNuevo', false %>
-				  </div>
-				  <div style="clear:both"></div>
-				  <div id="cliente_form">
-					<%= f.fields_for :cliente  do |ff| %>
-					  <div class="span12 field-box">
-				        <label>Nombre:</label>
-				        <%= ff.text_field(:nombre, class: "span9") %><br />
-				    </div>
-				    <div class="span12 field-box">
-				        <label>Apellido:</label>
-				        <%= ff.text_field(:apellido, class: "span9") %><br />
-				    </div>
-				    <div class="span12 field-box">
-				        <label>Fecha de Nacimiento:</label>
-				        <%= ff.date_select :fecha_nac , order: [:day, :month, :year], start_year: Time.now.year - 110, end_year: Time.now.year%> <br />
-				    </div>
-				    <div class="span12 field-box">
-				        <label>Nacionalidad:</label>
-				        <%= ff.text_field(:nacionalidad, class: "span9") %><br />
-				    </div>
-				    <div class="span12 field-box">
-				        <label>Email:</label>
-				        <%= ff.text_field(:email, class: "span9") %><br />
-				    </div>
-				    <div class="span12 field-box">
-				        <label>Telefono:</label>
-				        <%= ff.text_field(:telefono, class: "span9") %><br />
-				    </div>
-				    <div class="span12 field-box">
-				        <label>Documento:</label>
-				        <div class="address-fields">
-				          <%= ff.text_field(:documento_tipo, class: "span12 small", placeholder: "Tipo Documento") %>
-				          <%= ff.text_field(:documento, class: "span12 small", placeholder: "Documento") %>
-				        </div>
-				    </div>
-				    <div class="span12 field-box">
-				        <label>Direccion:</label>
-				        <div class="address-fields">
-				            <%= ff.text_field(:direccion, class: "span12", style: "margin-bottom: 15px;" , placeholder: "Direccion") %>
-				            <%= ff.text_field(:ciudad_residencia, class: "span12 small", placeholder: "Ciudad") %>
-				            <%= ff.text_field(:estado_residencia, class: "span12 small", placeholder: "Estado") %>
-				            <%= ff.text_field(:pais_residencia, class: "span12 small", placeholder: "Pais") %>
-				            <%= ff.text_field(:codigo_postal, class: "span12 small last", style: "margin-top: 15px;" , placeholder: "Codigo Postal") %>
-				        </div>
-				    </div>
-				    <div class="span12 field-box textarea">
-				        <label>Comentarios:</label>
-				        <%= ff.text_area(:comentarios, class: "span9") %><br />
-				        <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
-				    </div>
 
-					<% end %>
 					<div style="clear:both"></div>
 				  </div>
 				  <div class="span11 field-box actions">
