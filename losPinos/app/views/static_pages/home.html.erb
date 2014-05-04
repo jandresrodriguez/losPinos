@@ -51,6 +51,7 @@
                           <table class="table">
                               <thead>
                                 <tr>
+                                  <th>Estado</th>
                                   <th>Fecha Inicio Estadia</th>
                                   <th>Fecha Fin Estadia</th>
                                   <th>Cliente</th>
@@ -62,12 +63,28 @@
 
                               <tbody ng-repeat="reserva in reservas" >
                                   <tr ng-style="set_bg(reserva)">
+                                    <td>
+                                      <span ng-if="reserva.confirmada">
+                                        <span class="label label-success">
+                                          Confirmada
+                                        </span>
+                                      </span>
+                                      <span ng-if="!reserva.confirmada">
+                                        <span class="label label-warning">
+                                          Pendiente
+                                        </span>
+                                      </span>
+                                    </td>
                                     <td ng-style="set_color(reserva)">{{reserva.fecha_inicio_estadia | date:'dd MMM, yyyy HH:mm'}}</td>
                                     <td ng-style="set_color(reserva)">{{reserva.fecha_fin_estadia | date:'dd MMM, yyyy HH:mm'}}</td>
                                     <td ng-style="set_color(reserva)">{{reserva.cliente.nombre}}</td>
                                     <td ng-style="set_color(reserva)">{{reserva.habitacion.nombre}}</td>
                                     <td ng-style="set_color(reserva)">{{difference(reserva)}}</td>
-                                    <td><%= link_to 'Check in', class: 'btn btn-mini' %> 
+                                    <td><span ng-if="!reserva.confirmada">
+                                          <a class="btn btn-mini btn-success" ng-click="update1(reserva)">Confirmar</a>
+                                        </span>
+                                        <a class="btn btn-mini" ng-href="/reservas/{{reserva.id}}" style="text-decoration: none;">Ver</a>
+                                    </td>
                                   </tr>
                               </tbody>
                             </table>
@@ -77,102 +94,6 @@
 
  
                         </div>
-                    </div>
-
-                    
-                    <div class="row-fluid">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th class="span2">
-                                    Id
-                                    </th>
-                                    <th class="span2">
-                                    <span class="line"></span>Nombre
-                                    </th>
-                                    <th class="span2">
-                                        <span class="line"></span>Check-in
-                                    </th>
-                                    <th class="span2">
-                                        <span class="line"></span>Check-out
-                                    </th>
-                                    <th class="span2">
-                                        <span class="line"></span>Monto
-                                    </th>
-                                    <th class="span2">
-                                        <span class="line"></span>Estado
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- row -->
-                                <tr class="">
-                                    <td>
-                                        <a href="#">13432423</a>
-                                    </td>
-                                    <td class="">
-                                        Juan Perez
-                                    </td>
-                                    <td class="">                                        
-                                        25-03-2014
-                                    </td>
-                                    <td class="">                                        
-                                        28-03-2014
-                                    </td>
-                                    <td class="">                                        
-                                        $1245
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Active</span>
-                                        <!-- <ul class="actions">
-                                            <li><i class="table-edit"></i></li>
-                                            <li><i class="table-settings"></i></li>
-                                            <li class="last"><i class="table-delete"></i></li>
-                                        </ul> -->
-                                    </td>
-                                </tr>
-
-                                <tr class="">
-                                    <td>
-                                        <a href="#">54234</a>
-                                    </td>
-                                    <td class="">
-                                        Luis Gonzalez
-                                    </td>
-                                    <td class="">                                        
-                                        25-03-2014
-                                    </td>
-                                    <td class="">                                        
-                                        28-03-2014
-                                    </td>
-                                    <td class="">                                        
-                                        $4322
-                                    </td>
-                                    <td>
-                                        <span class="label label-warning">Cancelada</span>
-                                        <!-- <ul class="actions">
-                                            <li><i class="table-edit"></i></li>
-                                            <li><i class="table-settings"></i></li>
-                                            <li class="last"><i class="table-delete"></i></li>
-                                        </ul> -->
-                                    </td>
-                                </tr>
-                                
-                         
-                                
-                            
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="pagination">
-                      <ul>
-                        <li><a href="#">&#8249;</a></li>
-                        <li><a class="active" href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">&#8250;</a></li>
-                      </ul>
                     </div>
                 </div>
                 <!-- end table sample -->

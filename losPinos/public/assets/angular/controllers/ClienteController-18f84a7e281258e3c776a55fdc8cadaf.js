@@ -1,0 +1,1 @@
+(function(){App.controller("ClienteController",["$scope","filterFilter","$http",function(e,t,n){return e.clientes=[],n.get("./clientes.json").success(function(t){return e.clientes=t})}])}).call(this);

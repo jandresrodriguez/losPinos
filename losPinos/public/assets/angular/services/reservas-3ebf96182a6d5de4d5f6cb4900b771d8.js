@@ -1,0 +1,1 @@
+(function(){App.factory("Reserva",["$resource",function(e){return e("/reservas_display/:id",{id:"@id"},{update:{method:"PUT",params:{id:"@id"}}})}])}).call(this);

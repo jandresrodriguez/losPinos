@@ -1,59 +1,105 @@
-<p id="notice"><%= notice %></p>
+<div id="pad-wrapper" class="new-user">
+  <div class="row-fluid header">
+    <h3>Ver Reserva</h3>
+  </div>
 
-<p>
-  <strong>Fehca creacion:</strong>
-  <%= @reserva.fehca_creacion %>
-</p>
+  <div class="row-fluid form-wrapper">
+    <!-- left column -->
+    <div class="span9 with-sidebar">
+        <div class="container"><p id="notice"><%= notice %></p>
+<table class="table table-hover">
 
-<p>
-  <strong>Fecha inicio estadia:</strong>
-  <%= @reserva.fecha_inicio_estadia %>
-</p>
 
-<p>
-  <strong>Fecha fin estadia:</strong>
-  <%= @reserva.fecha_fin_estadia %>
-</p>
+<tr>
+  <td><strong>Fecha creacion:</strong></td>
+  <td><%= @reserva.fehca_creacion.strftime('%d %b, %Y %H:%M:%S ') %></td>
+</tr>
 
-<p>
-  <strong>Monto:</strong>
-  <%= @reserva.monto %>
-</p>
+<tr>
+  <td><strong>Fecha inicio estadia:</strong></td>
+  <td><%= @reserva.fecha_inicio_estadia.strftime('%d %b, %Y %H:%M:%S ') %></td>
+</tr>
 
-<p>
-  <strong>Moneda:</strong>
-  <%= @reserva.moneda %>
-</p>
+<tr>
+  <td><strong>Fecha fin estadia:</strong></td>
+  <td><%= @reserva.fecha_fin_estadia.strftime('%d %b, %Y %H:%M:%S ') %></td>
+</tr>
 
-<p>
-  <strong>Abonada:</strong>
-  <%= @reserva.abonada %>
-</p>
+<tr>
+  <td><strong>Monto:</strong></td>
+  <td><%= @reserva.monto %></td>
+</tr>
 
-<p>
-  <strong>Forma de pago:</strong>
-  <%= @reserva.forma_de_pago %>
-</p>
+<tr>
+  <td><strong>Moneda:</strong></td>
+  <td><%= @reserva.moneda %></td>
+</tr>
 
-<p>
-  <strong>Tipo reserva:</strong>
-  <%= @reserva.tipo_reserva %>
-</p>
+<tr>
+  <td><strong>Abonada:</strong></td>
+  <td><%= @reserva.abonada %></td>
+</tr>
 
-<p>
-  <strong>Cliente:</strong>
-  <%= @reserva.cliente %>
-</p>
+<tr>
+  <td><strong>Forma de pago:</strong></td>
+  <td><%= @reserva.forma_de_pago %></td>
+</tr>
 
-<p>
-  <strong>Habitacion:</strong>
-  <%= @reserva.habitacion %>
-</p>
+<tr>
+  <td><strong>Tipo reserva:</strong></td>
+  <td><%= @reserva.tipo_reserva %></td>
+</tr>
 
-<p>
-  <strong>Comentarios:</strong>
-  <%= @reserva.comentarios %>
-</p>
+<tr>
+  <td><strong>Cliente:</strong></td>
+  <td><%= @reserva.cliente %></td>
+</tr>
 
-<%= link_to 'Edit', edit_reserva_path(@reserva) %> |
-<%= link_to 'Back', reservas_path %>
+<tr>
+  <td><strong>Habitacion:</strong></td>
+  <td><%= @reserva.habitacion %></td>
+</tr>
+
+<tr>
+  <td><strong>Confirmacion:</strong></td>
+  <td>
+    <% if @reserva.confirmada %>
+    <span>
+      <span class="label label-success">
+        Confirmada
+      </span>
+    </span>
+    <% else %>
+    <span>
+      <span class="label label-warning">
+        Pendiente
+      </span>
+    <% end %>
+    </span>
+  </td>
+</tr>
+
+<tr>
+  <td><strong>Acompaniantes:</strong></td>
+  <td>
+    <% if @reserva.clientes.size > 0 %>
+      <% @reserva.clientes.each do |a| %>
+        <%= a.nombre %><br>
+      <% end %>
+    <% else %>
+      Sin acompaniantes
+    <% end %>
+    </span>
+  </td>
+</tr>
+
+<tr>
+  <td><strong>Comentarios:</strong></td>
+  <td><%= @reserva.comentarios %></td>
+</tr>
+
+</table>
+      </div>
+    </div>
+  </div>
+</div>

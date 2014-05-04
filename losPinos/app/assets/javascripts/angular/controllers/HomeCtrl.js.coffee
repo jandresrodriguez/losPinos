@@ -25,12 +25,14 @@ App.controller 'HomeCtrl', ['$scope', '$location', '$http', '$timeout',  ($scope
   $scope.set_bg = (reserva) ->
     horas = Math.round((Date.parse(reserva.fecha_inicio_estadia) - Date.now()) / 3600000)
     min = Math.round((Date.parse(reserva.fecha_inicio_estadia) - Date.now()) / 60000)
-    if min < 59 and horas < 1
+    if reserva.confirmada
+      "background-color": "#FFFFFF"
+    else if min < 59 and horas < 1
       "background-color": "#C24641"
-    else "background-color": "#FFF380"  if horas > 0 and horas < 6 
+    else "background-color": "#FFF380" if horas > 0 and horas < 6 
 
   $scope.set_color = (reserva) ->  
-  	if Math.round((Date.parse(reserva.fecha_inicio_estadia) - Date.now()) / 60000) < 59
+  	if Math.round((Date.parse(reserva.fecha_inicio_estadia) - Date.now()) / 60000) < 59 && !reserva.confirmada
   		return 'color': 'white'
   
   fireDigestEveryMinute = ->

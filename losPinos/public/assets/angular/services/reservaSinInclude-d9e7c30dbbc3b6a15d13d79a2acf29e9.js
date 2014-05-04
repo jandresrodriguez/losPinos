@@ -1,0 +1,1 @@
+(function(){App.factory("ReservaSinInclude",["$resource",function(e){return e("/reservas/:id",{id:"@id"})}])}).call(this);
