@@ -1,38 +1,52 @@
 <h1 style="margin-top: 20px; margin-left: 10px; margin-bottom: 20px;">Listado de habitaciones</h1>
 
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Numero</th>
-      <th>Descripcion</th>
-      <th>Disponiblidad</th>
-      <th>Comentarios</th>
-      <th>Nro camas single</th>
-      <th>Nro camas matrimoniales</th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="col-xs-6" >
+    <div class="right-inner-addon">
+        <i class="icon-search"></i>
+        <input ng-model="search.todo" type="search"
+               class="form-control" 
+               placeholder="Buscar" />
+    </div>
+</div>
 
-  <tbody>
-    <% @habitacions.each do |habitacion| %>
+<div ng-controller="HabitacionController">
+
+  <table class="table table-striped table-bordered">
+    <thead>
       <tr>
-        <td><%= habitacion.nombre %></td>
-        <td><%= habitacion.descripcion %></td>
-        <td>
-          <% if habitacion.disponible %>
-            <%=  'Disponible '%>
-          <% else %>
-            <%=  'Ocupada '%>
-          <% end %>
-        </td>
-        <td><%= habitacion.comentarios %></td>
-        <td><%= habitacion.nro_camas_single %></td>
-        <td><%= habitacion.nro_camas_matrimoniales %></td>
-        <td><%= link_to 'Editar', edit_habitacion_path(habitacion), class: 'btn btn-mini' %> 
-        <%= link_to 'Eliminar', habitacion_path(habitacion), :method => :delete, :confirm => 'Estas seguro que desea eliminar la habitacion?', class: 'btn btn-mini btn-danger',style: 'color: white; font-weight: bold;' %></td>
+        <th>Numero</th>
+        <th>Descripcion</th>
+        <th>Disponiblidad</th>
+        <th>Comentarios</th>
+        <th>Nro camas single</th>
+        <th>Nro camas matrimoniales</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <tr ng-repeat="habitacion in habitaciones | filter: search.todo">
+        <td>{{ habitacion.nombre }}</td>
+        <td>{{ habitacion.descripcion }}</td>
+        <td>
+          <span ng-if="habitacion.disponible">
+            Disponible
+          </span>
+          <span ng-if="!habitacion.disponible">
+            No disponible
+          </span>
+        </td>
+        <td>{{ habitacion.comentarios }}</td>
+        <td>{{ habitacion.nro_camas_single }}</td>
+        <td>{{ habitacion.nro_camas_matrimoniales }}</td>
+        <td>
+          <a class="btn btn-mini" ng-href="/habitacions/{{habitacion.id}}/edit">Editar</a>
+          <a class="btn btn-mini btn-danger" data-confirm="Estas seguro que desea eliminar la habitacion?" data-method="delete" href="/habitacions/{{habitacion.id}}/" rel="nofollow" style="color: white; font-weight: bold;">Eliminar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
 
 <br>
