@@ -2,6 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.slide.ng-enter, .slide.ng-leave {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
+}
+
+.slide.ng-enter {
+	opacity:0;
+ }        /* starting animations for enter */
+
+.slide.ng-enter-active {
+	opacity: 1;
+ } /* terminal animations for enter */
+
+.slide.ng-leave {
+	opacity: 1;
+ }        /* starting animations for leave */
+
+.slide.ng-leave-active { 
+	opacity:0;
+} /* terminal animations for leave */
+
+.animate-enter {
+	-webkit-transition: 1s linear all; /* Chrome */
+	transition: 1s linear all;
+	opacity: 0;
+}
+ 
+.animate-enter.animate-enter-active {
+	opacity: 1;
+}
+
 .warning{
 	background-color: #FFF380;
 }

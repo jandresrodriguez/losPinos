@@ -9,7 +9,7 @@
             <i class="icon icon-arrow-left"></i>
         </th>
         <th colspan="6">
-  
+          {{ dias_habitaciones.dias[0].dia | date:'MMMM yyyy' }}
         </th>
         <th class="flechas" ng-click="avanzar_semana()">
             <i class="icon icon-arrow-right"></i>
@@ -17,13 +17,13 @@
       </tr>
       <tr class="dias">
         <th>Habitación</th>
-        <th ng-repeat="item in dias_habitaciones.dias">
-          <span> {{ item.dia }} </span>
+        <th ng-repeat="item in dias_habitaciones.dias" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+          <span> {{ item.dia | date:'dd'  }} </span>
         </th>
       </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="item in dias_habitaciones.habitaciones_estado">
+        <tr ng-repeat="item in dias_habitaciones.habitaciones_estado" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
           <td class="habitacion"> {{ item.habitacion.nombre }} </td>
           <td ng-class="set_class(item.dias_estado[0].libre)"></td>
           <td ng-class="set_class(item.dias_estado[1].libre)"></td>
