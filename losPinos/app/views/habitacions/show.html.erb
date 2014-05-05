@@ -1,34 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div id="pad-wrapper" class="new-user">
+  <div class="row-fluid header">
+    <h3>Ver Habitacion</h3>
+  </div>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @habitacion.nombre %>
-</p>
+  <div class="row-fluid form-wrapper">
+    <!-- left column -->
+    <div class="span9 with-sidebar">
+        <div class="container"><p id="notice"><%= notice %></p>
+<table class="table table-hover">
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @habitacion.descripcion %>
-</p>
+<tr>
+  <td><strong>Nombre:</strong></td>
+  <td><%= @habitacion.nombre %></td>
+</tr>
 
-<p>
-  <strong>Disponible:</strong>
-  <%= @habitacion.disponible %>
-</p>
+<tr>
+  <td><strong>Descripcion:</strong></td>
+  <td><%= @habitacion.descripcion %></td>
+</tr>
 
-<p>
-  <strong>Comentarios:</strong>
-  <%= @habitacion.comentarios %>
-</p>
+<tr>
+  <td><strong>Disponible:</strong></td>
+  <td><%= @habitacion.disponible %></td>
+</tr>
 
-<p>
-  <strong>Nro camas single:</strong>
-  <%= @habitacion.nro_camas_single %>
-</p>
+<tr>
+  <td><strong>Comentarios:</strong></td>
+  <td><%= @habitacion.comentarios %></td>
+</tr>
 
-<p>
-  <strong>Nro camas matrimoniales:</strong>
-  <%= @habitacion.nro_camas_matrimoniales %>
-</p>
+<tr>
+  <td><strong>Nro camas single:</strong></td>
+  <td><%= @habitacion.nro_camas_single %></td>
+</tr>
 
-<%= link_to 'Edit', edit_habitacion_path(@habitacion) %> |
-<%= link_to 'Back', habitacions_path %>
+<tr>
+  <td><strong>Nro camas matrimoniales:</strong></td>
+  <td><%= @habitacion.nro_camas_matrimoniales %></td>
+</tr>
+
+<%= link_to 'Atras', habitacions_path %>
+
+</table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,44 +1,56 @@
-<p id="notice"><%= notice %></p>
+<div id="pad-wrapper" class="new-user">
+  <div class="row-fluid header">
+    <h3>Ver Cliente</h3>
+  </div>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @cliente.nombre %>
-</p>
+  <div class="row-fluid form-wrapper">
+    <!-- left column -->
+    <div class="span9 with-sidebar">
+        <div class="container"><p id="notice"><%= notice %></p>
+<table class="table table-hover">
 
-<p>
-  <strong>Apellido:</strong>
-  <%= @cliente.apellido %>
-</p>
+<tr>
+  <td><strong>Nombre:</strong></td>
+  <td><%= @cliente.nombre %></td>
+</tr>
 
-<p>
-  <strong>Fecha nac:</strong>
-  <%= @cliente.fecha_nac %>
-</p>
+<tr>
+  <td><strong>Apellido:</strong></td>
+  <td><%= @cliente.apellido %></td>
+</tr>
 
-<p>
-  <strong>Nacionalidad:</strong>
-  <%= @cliente.nacionalidad %>
-</p>
+<tr>
+  <td><strong>Fecha nac:</strong></td>
+  <td><%= @cliente.fecha_nac %></td>
+</tr>
 
-<p>
-  <strong>Documento:</strong>
-  <%= @cliente.documento %>
-</p>
+<tr>
+  <td><strong>Nacionalidad:</strong></td>
+  <td><%= @cliente.nacionalidad %></td>
+</tr>
 
-<p>
-  <strong>Documento tipo:</strong>
-  <%= @cliente.documento_tipo %>
-</p>
+<tr>
+  <td><strong>Documento:</strong></td>
+  <td><%= @cliente.documento %></td>
+</tr>
 
-<p>
-  <strong>Comentarios:</strong>
-  <%= @cliente.comentarios %>
-</p>
+<tr>
+  <td><strong>Documento tipo:</strong></td>
+  <td><%= @cliente.documento_tipo %></td>
+</tr>
 
-<p>
-  <strong>Email:</strong>
-  <%= @cliente.email %>
-</p>
+<tr>
+  <td><strong>Comentarios:</strong></td>
+  <td><%= @cliente.comentarios %></td>
+</tr>
 
-<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
-<%= link_to 'Back', clientes_path %>
+<tr>
+  <td><strong>Email:</strong></td>
+  <td><%= @cliente.email %></td>
+</tr>
+<%= link_to 'Atras', clientes_path %>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
