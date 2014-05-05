@@ -35,6 +35,8 @@ gem 'chosen-rails'
 
 gem 'jquery-turbolinks'
 
+gem 'icheck-rails'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

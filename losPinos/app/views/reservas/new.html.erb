@@ -58,11 +58,6 @@
 				    { include_blank: true }, 
 				    {class: 'chz-select' } %>
 				  </div>
-				  <div class="span12 field-box textarea">
-				    <%= f.label :comentarios %>
-				    <%= f.text_area :comentarios, class: "span9" %>
-				    <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
-				  </div>
 				  <div class="span12 field-box">
 				    <%= f.label :cliente %>
 				    <%= f.select :cliente, 
@@ -70,6 +65,20 @@
 				    { include_blank: true  },
 				    {class: 'chz-select-cliente' } %>
 				  </div>
+				  
+				  <div class="span12" style="margin-left:0px; margin-bottom:20px;" >
+				  	<%= f.label :confirmada%>
+				  	<div style="padding-left:120px;">
+				  	
+				   	<input type="checkbox" class='icheck-me' data-skin="square" data-color="blue"  name="reserva[confirmada] value="true"/>
+				   </div>
+				   </div>
+				  <div class="span12 field-box textarea">
+				    <%= f.label :comentarios %>
+				    <%= f.text_area :comentarios, class: "span9" %>
+				    <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
+				  </div>
+				  
 
 					<div style="clear:both"></div>
 				  </div>

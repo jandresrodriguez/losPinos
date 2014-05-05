@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.ui.effect-blind
+//= require jquery.icheck
 //= require chosen-jquery
 //= require scaffold
 //= require turbolinks

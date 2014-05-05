@@ -12,7 +12,10 @@
  *= require_tree .
  *= require font-awesome
  *= require chosen
+
  */
+
+@import 'icheck/square/blue';
 
 h1.titulo
 {
