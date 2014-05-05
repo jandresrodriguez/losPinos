@@ -80,7 +80,7 @@ class HabitacionsController < ApplicationController
       (@diaInicioSemana .. @diaFinSemana).each do |fecha|
 
         @libre = true
-        if Reserva.where("fecha_inicio_estadia <= ? & fecha_fin_estadia >= ? & habitacion_id == ?", fecha, fecha, habitacion).exists?
+        if Reserva.where("fecha_inicio_estadia <= ? and fecha_fin_estadia >= ? and habitacion_id == ?", fecha, fecha, habitacion).exists?
           @libre = false
         end
         @dias_estado.push({dia: fecha, libre: @libre})

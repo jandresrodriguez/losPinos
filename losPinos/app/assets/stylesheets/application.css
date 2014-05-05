@@ -14,7 +14,6 @@
  *= require chosen
  */
 
-
 h1.titulo
 {
 	margin: 20px 0px 20px 10px;
@@ -23,4 +22,33 @@ h1.titulo
 .alert
 {
 	margin-top: 15px;
+}
+
+.calendario thead
+{
+	background-color: #F7F7F7;
+	color: #33455A;
+}
+
+.calendario th, td
+{
+	border-color: #DAE1E8;
+	border-style: solid;
+	border-width: 2px;
+}
+
+.calendario .habitacion
+{
+	color: #33455A;
+}
+
+.calendario .flechas:hover
+{
+	background-color: #DAE1E8;
+}
+
+.calendario .icon
+{
+	color: #33455A;
+	font-size: 21px;
 }

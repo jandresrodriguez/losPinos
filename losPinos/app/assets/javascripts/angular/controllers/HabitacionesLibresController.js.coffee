@@ -21,7 +21,7 @@ App.controller 'ControlHabitacionesController', ['$scope','filterFilter', '$http
 		if libre
 			"libre"
 		else
-			"ocupada"
+			"ocupado"
 
 	$scope.obtener_datos = () ->
 		$http.get('./habitaciones_estado?cantidad=' + $scope.cantidad).success((data) ->

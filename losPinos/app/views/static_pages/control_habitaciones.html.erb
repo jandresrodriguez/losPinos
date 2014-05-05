@@ -5,11 +5,15 @@
   <table class="calendario" cellpadding="10" cellspacing="0">
     <thead>
       <tr>
-        <th><a class="cambioSemana" ng-click="retroceder_semana()"><</a></th>
-        <th colspan="6">
-          
+        <th class="flechas" ng-click="retroceder_semana()">
+            <i class="icon icon-arrow-left"></i>
         </th>
-        <th><a class="cambioSemana" ng-click="avanzar_semana()">></a></th>
+        <th colspan="6">
+  
+        </th>
+        <th class="flechas" ng-click="avanzar_semana()">
+            <i class="icon icon-arrow-right"></i>
+        </th>
       </tr>
       <tr class="dias">
         <th>Habitación</th>
@@ -31,10 +35,4 @@
         </tr>
     </tbody>
   </table>
-
-  <dia class="referencias">
-    <div> Verdes - Libres </div>
-    <div> Rojas - Ocupadas </div>
-  </dia>
-
 </div>
