@@ -33,6 +33,10 @@
       position: absolute;
       right: 50px; }
 
+.btn{
+  text-decoration: none !important;
+}
+
 .section {
   border-top: 1px solid #edeff1;
   margin-top: 100px;

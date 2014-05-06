@@ -1,15 +1,13 @@
 <%= form_for(@cliente) do |f| %>
-  <% if @cliente.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
-
-      <ul>
-      <% @cliente.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <% if @cliente.errors.any? %>
+      <div class="alert fade in alert-danger alert-dismissable"><button aria-hidden="true" class="close" data-dismiss="alert" type="button">×</button>
+        <ul>
+          <% @cliente.errors.full_messages.each do |msg| %>
+            <%= content_tag :li, msg, :id => "error_#{msg}" if msg.is_a?(String) %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <div class="span12 field-box">
         <label>Nombre:</label>
         <%= f.text_field(:nombre, class: "span9") %><br />
@@ -20,7 +18,7 @@
     </div>
     <div class="span12 field-box">
         <label>Fecha de Nacimiento:</label>
-        <%= f.date_select :fecha_nac , order: [:day, :month, :year], start_year: Time.now.year - 110, end_year: Time.now.year%> <br />
+        <%= f.date_select :fecha_nac , order: [:day, :month, :year], start_year: Time.now.year - 110, end_year: Time.now.year , use_month_names: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']%> <br />
     </div>
     <div class="span12 field-box">
         <label>Nacionalidad:</label>
