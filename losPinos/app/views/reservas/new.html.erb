@@ -9,16 +9,15 @@
 		    <div class="container">
 				
 				<%= form_for(@reserva) do |f| %>
-				  <% if @reserva.errors.any? %>
-				    <div id="error_explanation">
-				      <h2><%= pluralize(@reserva.errors.count, "error") %> prohibited this reserva from being saved:</h2>
-				      <ul>
-				        <% @reserva.errors.full_messages.each do |msg| %>
-				          <li><%= msg %></li>
-				        <% end %>
-				      </ul>
-				    </div>
-				  <% end %>
+				    <% if @reserva.errors.any? %>
+				      <div class="alert fade in alert-danger alert-dismissable"><button aria-hidden="true" class="close" data-dismiss="alert" type="button">×</button>
+				        <ul>
+				          <% @reserva.errors.full_messages.each do |msg| %>
+				            <%= content_tag :li, msg, :id => "error_#{msg}" if msg.is_a?(String) %>
+				          <% end %>
+				        </ul>
+				      </div>
+				    <% end %>
 				   
 				
 				  <div class="span12 field-box">
@@ -70,7 +69,7 @@
 				  	<%= f.label :confirmada%>
 				  	<div style="padding-left:120px;">
 				  	
-				   	<input type="checkbox" class='icheck-me' data-skin="square" data-color="blue"  name="reserva[confirmada] value="true"/>
+				   	<input type="checkbox" class='icheck-me' data-skin="square" data-color="blue"  name="reserva[confirmada]" value="true"/>
 				   </div>
 				   </div>
 				  <div class="span12 field-box textarea">
@@ -85,7 +84,7 @@
 				  <div class="span11 field-box actions">
 				    <%= f.submit "Crear reserva", class: "btn-glow primary" %>
 				    <span>OR</span>
-				    <input type="reset" value="Cancelar" class="reset" />
+				    <%= link_to "Volver", reservas_path , class: "btn btn-default", style: "color: #0078d9; font-size: 11px; margin-left: 5px;" %>
 				  </div>
 
 				<% end %>

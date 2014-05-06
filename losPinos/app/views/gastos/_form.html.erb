@@ -36,7 +36,7 @@
   <div class="span11 field-box actions">
     <%= f.submit "Ingresar Gasto", class:"btn-glow primary"  %>
       <span>OR</span>
-      <input type="reset" value="Cancelar" class="reset" />
+     <%= link_to "Volver", gastos_path , class: "btn btn-default", style: "color: #0078d9; font-size: 11px; margin-left: 5px;" %>
   </div>
   </div>
 <% end %>

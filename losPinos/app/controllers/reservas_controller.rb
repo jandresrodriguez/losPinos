@@ -33,12 +33,22 @@ class ReservasController < ApplicationController
   # POST /reservas.json
   def create
     @reserva = Reserva.new(reserva_params)
-    @tipo_reserva = TipoReserva.find(params[:reserva][:tipo_reserva])
-    @habitacion = Habitacion.find(params[:reserva][:habitacion])
-    @cliente = Cliente.find(params[:reserva][:cliente])
-    @reserva.tipo_reserva = @tipo_reserva
-    @reserva.habitacion = @habitacion
-    @reserva.cliente = @cliente
+    if !params[:reserva][:tipo_reserva].blank?
+      @tipo_reserva = TipoReserva.find(params[:reserva][:tipo_reserva])
+      @reserva.tipo_reserva = @tipo_reserva
+    end
+    if !params[:reserva][:habitacion].blank?
+      @habitacion = Habitacion.find(params[:reserva][:habitacion])
+      @reserva.habitacion = @habitacion
+    end
+
+    if !params[:reserva][:cliente].blank?
+      @cliente = Cliente.find(params[:reserva][:cliente])
+      @reserva.cliente = @cliente
+    end
+    if !params[:reserva][:confirmada].blank?
+      @reserva.confirmada = params[:reserva][:confirmada]
+    end
     @reserva.fehca_creacion = Time.now
 
     respond_to do |format|

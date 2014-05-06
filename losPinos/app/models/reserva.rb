@@ -8,19 +8,20 @@ class Reserva < ActiveRecord::Base
   accepts_nested_attributes_for :cliente
   accepts_nested_attributes_for :clientes
 
-  # validates :monto, :moneda, presence: true
+  validates :monto, :moneda, presence: true
 
   validate :fechas_coherentes
 
   validates :fecha_inicio_estadia, presence: true, allow_blank: false
   validates :fecha_fin_estadia, presence: true, allow_blank: false
   validates :monto, presence: true, allow_blank: false
-  validate :cliente, allow_blank: false
-  validate :habitacion, allow_blank: false
-
+  validates :tipo_reserva, presence: true, allow_blank: false
+  validates :cliente, presence: true, allow_blank: false
+  validates :habitacion, presence: true, allow_blank: false
+ 
   def fechas_coherentes
   	if fecha_inicio_estadia>=fecha_fin_estadia
-  		errors.add(:base, 'error message')
+  		errors[:base] << "La fecha de fin no puede ser antes que la de inicio."
   	end
   end
 

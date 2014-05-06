@@ -1,18 +1,16 @@
 <%= form_for(@habitacion) do |f| %>
-  <% if @habitacion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@habitacion.errors.count, "error") %> prohibited this habitacion from being saved:</h2>
-
-      <ul>
-      <% @habitacion.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <% if @habitacion.errors.any? %>
+      <div class="alert fade in alert-danger alert-dismissable"><button aria-hidden="true" class="close" data-dismiss="alert" type="button">×</button>
+        <ul>
+          <% @habitacion.errors.full_messages.each do |msg| %>
+            <%= content_tag :li, msg, :id => "error_#{msg}" if msg.is_a?(String) %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <div class="span12 field-box">
         <label>Numero:</label>
-        <%= f.text_field(:nombre, class: "span9") %><br />
+        <%= f.text_field(:nombre, class: "has-error") %><br />
     </div>
     <div class="span12 field-box textarea">
         <label>Descripcion:</label>
@@ -39,6 +37,6 @@
     <div class="span11 field-box actions">
       <%= f.submit "Crear Habitacion", class:"btn-glow primary"  %>
         <span>OR</span>
-        <input type="reset" value="Cancel" class="reset" />
+        <%= link_to "Volver", habitacions_path , class: "btn btn-default", style: "color: #0078d9; font-size: 11px; margin-left: 5px;" %>
     </div>
 <% end %>

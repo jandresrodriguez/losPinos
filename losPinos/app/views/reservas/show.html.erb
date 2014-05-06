@@ -84,7 +84,7 @@
   <td>
     <% if @reserva.clientes.size > 0 %>
       <% @reserva.clientes.each do |a| %>
-        <%= a.nombre %><br>
+        <%= a.nombre + " " + a.apellido %><br>
       <% end %>
     <% else %>
       Sin acompaniantes
