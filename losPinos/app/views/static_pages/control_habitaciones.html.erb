@@ -25,13 +25,27 @@
     <tbody>
         <tr ng-repeat="item in dias_habitaciones.habitaciones_estado" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
           <td class="habitacion"> {{ item.habitacion.nombre }} </td>
-          <td ng-class="set_class(item.dias_estado[0].libre)"></td>
-          <td ng-class="set_class(item.dias_estado[1].libre)"></td>
-          <td ng-class="set_class(item.dias_estado[2].libre)"></td>
-          <td ng-class="set_class(item.dias_estado[3].libre)"></td>
-          <td ng-class="set_class(item.dias_estado[4].libre)"></td>
-          <td ng-class="set_class(item.dias_estado[5].libre)"></td>
-          <td ng-class="set_class(item.dias_estado[6].libre)"></td>
+          <td ng-class="set_class(item.dias_estado[0].libre)">
+            <span ng-if="!item.dias_estado[0].libre">{{ item.dias_estado[0].descripcion }}</span>
+          </td>
+          <td ng-class="set_class(item.dias_estado[1].libre)">
+            <span ng-if="!item.dias_estado[1].libre">{{ item.dias_estado[1].descripcion }}</span>
+          </td>
+          <td ng-class="set_class(item.dias_estado[2].libre)">
+            <span ng-if="!item.dias_estado[2].libre">{{ item.dias_estado[2].descripcion }}</span>
+          </td>
+          <td ng-class="set_class(item.dias_estado[3].libre)">
+            <span ng-if="!item.dias_estado[3].libre">{{ item.dias_estado[3].descripcion }}</span>
+          </td>
+          <td ng-class="set_class(item.dias_estado[4].libre)">
+            <span ng-if="!item.dias_estado[4].libre">{{ item.dias_estado[4].descripcion }}</span>
+          </td>
+          <td ng-class="set_class(item.dias_estado[5].libre)">
+            <span ng-if="!item.dias_estado[5].libre">{{ item.dias_estado[5].descripcion }}</span>
+          </td>
+          <td ng-class="set_class(item.dias_estado[6].libre)">
+            <span ng-if="!item.dias_estado[6].libre">{{ item.dias_estado[6].descripcion }}</span>
+          </td>
         </tr>
     </tbody>
   </table>
