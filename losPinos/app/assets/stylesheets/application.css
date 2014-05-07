@@ -55,3 +55,10 @@ h1.titulo
 	color: #33455A;
 	font-size: 21px;
 }
+
+.volver{
+	color: #0078d9 !important; 
+	font-size: 11px !important; 
+	margin-left: 5px; 
+	float: right;
+}

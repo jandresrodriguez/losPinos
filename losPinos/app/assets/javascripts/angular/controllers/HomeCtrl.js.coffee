@@ -34,6 +34,10 @@ App.controller 'HomeCtrl', ['$scope', '$location', '$http', '$timeout',  ($scope
   $scope.set_color = (reserva) ->  
   	if Math.round((Date.parse(reserva.fecha_inicio_estadia) - Date.now()) / 60000) < 59 && !reserva.confirmada
   		return 'color': 'white'
+
+  $scope.update1 = (reserva) ->
+    reserva.confirmada = true
+    Reserva.update(reserva.id, reserva)
   
   fireDigestEveryMinute = ->
     $timeout (->
