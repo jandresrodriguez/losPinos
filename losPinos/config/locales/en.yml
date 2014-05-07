@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+
+en:
+  errors:
+    messages:
+      blank: "no puede quedar vacio."

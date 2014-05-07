@@ -8,8 +8,6 @@ class Reserva < ActiveRecord::Base
   accepts_nested_attributes_for :cliente
   accepts_nested_attributes_for :clientes
 
-  validates :monto, :moneda, presence: true
-
   validate :fechas_coherentes
 
   validates :fecha_inicio_estadia, presence: true, allow_blank: false
