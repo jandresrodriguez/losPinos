@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 <html ng-app="LosPinos">
 <head>
-	<title>Los Pinos - Home</title>
-	  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-	  <%= csrf_meta_tags %>
+    <title>Los Pinos - Home</title>
+      <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+      <%= csrf_meta_tags %>
       <%= favicon_link_tag 'icono_pinos.ico' %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
@@ -126,11 +126,8 @@
     <!-- sidebar -->
     <div id="sidebar-nav">
         <ul id="dashboard-menu">
-            <li class="active">
-                <div class="pointer">
-                    <div class="arrow"></div>
-                    <div class="arrow_border"></div>
-                </div>
+            <li >
+                
                 <a href="/home">
                     <i class="icon-home"></i>
                     <span>Inicio</span>
@@ -182,7 +179,11 @@
                     <li><%= link_to "Ingresar Gasto" , new_gasto_path %></li>
                 </ul>
             </li>
-            <li>
+            <li class="active">
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
                 <a href="/contacts">
                     <i class="icon-cog"></i>
                     <span>Ajustes</span>
@@ -194,7 +195,7 @@
     <!-- end sidebar -->
 
 
-	<!-- main container -->
+    <!-- main container -->
     <div class="content">
         <div class="container-fluid">
             <% flash.each do |key, value| %>
@@ -203,7 +204,7 @@
 
             <%= yield %>
 
-    	</div>
+        </div>
     </div>
 
 

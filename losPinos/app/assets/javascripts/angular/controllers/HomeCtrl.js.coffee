@@ -1,4 +1,4 @@
-App.controller 'HomeCtrl', ['$scope', '$location', '$http', '$timeout',  ($scope, $location, $http, $timeout) ->
+App.controller 'HomeCtrl', ['$scope', '$location', '$http', '$timeout', 'Reserva', ($scope, $location, $http, $timeout, Reserva) ->
   $scope.reservas = []
   $http.get('./ultimas_reservas.json').success((data) ->
     $scope.reservas = data

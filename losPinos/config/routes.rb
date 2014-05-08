@@ -1,5 +1,9 @@
 LosPinos::Application.routes.draw do
 
+  get "contacts/new"
+  get "contacts/create"
+  get "contacts_controller/new"
+  get "contacts_controller/create"
   get "checks/checkin"
   get "checks/checkout"
   # Pantalla principal
@@ -44,7 +48,6 @@ LosPinos::Application.routes.draw do
  # match '/signin',  to: 'sessions#new',         via: 'get'
  # match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/home',  to: 'static_pages#home',         via: 'get'
-  match '/home1',  to: 'static_pages#action',         via: 'post'
 
   get '/control_habitaciones' => 'static_pages#control_habitaciones'
   get "/ultimas_reservas(.:format)" => "static_pages#ultimas"
@@ -54,6 +57,10 @@ LosPinos::Application.routes.draw do
   put "/reservas_display/:id(.:format)" => "reservas#updateReservas"
 
   put "/reservas(.:format)" => "reservas#index"
+
+  match '/contacts',     to: 'contacts#new',             via: 'get'
+  
+  resources "contacts", only: [:new, :create]
 
 
 
