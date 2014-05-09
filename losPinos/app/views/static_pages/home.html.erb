@@ -61,7 +61,7 @@
                                 </tr>
                               </thead>
 
-                              <tbody ng-repeat="reserva in reservas" >
+                              <tbody ng-repeat="reserva in reservas" ng-cloak >
                                   <tr ng-style="set_bg(reserva)">
                                     <td>
                                       <span ng-if="reserva.confirmada">

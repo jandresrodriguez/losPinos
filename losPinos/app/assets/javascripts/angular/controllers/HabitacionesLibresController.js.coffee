@@ -1,6 +1,7 @@
 App.controller 'ControlHabitacionesController', ['$scope','filterFilter', '$http',  ($scope, $filterFilter,  $http) ->
 	$scope.cantidad = 0
 	$scope.dias_habitaciones = []
+	$scope.selectedReserva = null
 	$http.get('./habitaciones_estado?cantidad=' + $scope.cantidad).success((data) ->
 		$scope.dias_habitaciones = data
 	)
@@ -38,8 +39,7 @@ App.controller 'ControlHabitacionesController', ['$scope','filterFilter', '$http
 		if ! item.dias_estado[posicion].libre
 			$('#calendario_informacion').finish()
 			$('#calendario_informacion').fadeIn()
-			$scope.reserva = item.dias_estado[posicion].reserva
-			console.log($scope.reserva)
+			$scope.selectedReserva = JSON.parse(item.dias_estado[posicion].reserva);
 
 	$scope.ocultar_informacion = () ->
 		$('#calendario_informacion').finish()

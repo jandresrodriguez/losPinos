@@ -29,7 +29,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="reserva in reservas | filter: search.nombre">
+      <tr ng-repeat="reserva in reservas | filter: search.nombre" ng-cloak>
         <!--filter: {habitacion.nombre: search.nombre }-->
         <td>
           <span ng-if="reserva.confirmada">

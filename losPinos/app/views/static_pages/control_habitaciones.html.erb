@@ -47,42 +47,43 @@
     <table class="table">
       <tr>
         <td><strong>Fecha inicio estadia:</strong></td>
-        <td>{{ reserva.fecha_inicio_estadia | date:'dd MMM, yyyy HH:mm' }}</td>
+        <td>{{ selectedReserva.fecha_inicio_estadia | date:'dd MMM, yyyy HH:mm' }}</td>
       </tr>
       <tr>
         <td><strong>Fecha fin estadia:</strong></td>
-        <td>{{ reserva.fecha_fin_estadia | date:'dd MMM, yyyy HH:mm' }}</td>
+        <td>{{ selectedReserva.fecha_fin_estadia | date:'dd MMM, yyyy HH:mm' }}</td>
       </tr>
       <tr>
         <td><strong>Tipo reserva:</strong></td>
-        <td>{{ reserva.tipo_reserva }}</td>
+        <td>{{ selectedReserva.tipo_reserva.nombre }}</td>
       </tr>
       <tr>
         <td><strong>Cliente:</strong></td>
-        <td>{{ reserva.cliente.nombre }}</td>
+        <td>{{ selectedReserva.cliente.nombre }}</td>
       </tr>
       <tr>
         <td><strong>Habitacion:</strong></td>
-        <td>{{ reserva.habitacion.nombre }}</td>
+        <td>{{ selectedReserva.habitacion.nombre }}</td>
       </tr>
       <tr>
         <td><strong>Confirmacion:</strong></td>
-        <!--
-        <span ng-if="reserva.confirmada">
+        
+        <td>
+          <span ng-if="selectedReserva.confirmada">
             <span class="label label-success">
               Confirmada
             </span>
           </span>
-          <span ng-if="!reserva.confirmada">
+          <span ng-if="!selectedReserva.confirmada">
             <span class="label label-warning">
               Pendiente
             </span>
           </span>
-        -->
+        </td>
       </tr>
       <tr>
         <td><strong>Comentarios:</strong></td>
-        <td>{{ reserva.comentarios }}</td>
+        <td>{{ selectedReserva.comentarios }}</td>
       </tr>
     </table>
   </div>

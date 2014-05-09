@@ -80,3 +80,7 @@ h1.titulo
 .fl{
 	float:left;
 }
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}

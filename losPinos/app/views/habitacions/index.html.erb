@@ -25,7 +25,7 @@
     </thead>
 
     <tbody>
-      <tr ng-repeat="habitacion in habitaciones | filter: search.todo">
+      <tr ng-repeat="habitacion in habitaciones | filter: search.todo" ng-cloak>
         <td>{{ habitacion.nombre }}</td>
         <td>{{ habitacion.descripcion }}</td>
         <td>

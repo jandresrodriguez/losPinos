@@ -24,7 +24,7 @@
     </thead>
 
     <tbody>
-      <tr ng-repeat="gasto in gastos | filter: search.todo">
+      <tr ng-repeat="gasto in gastos | filter: search.todo" ng-cloak>
         <td>{{ gasto.fecha | date:'dd MMM, yyyy' }}</td>
         <td>{{ gasto.rubro }}</td>
         <td>{{ gasto.monto }}</td>
