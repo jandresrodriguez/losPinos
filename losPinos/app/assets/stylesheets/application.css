@@ -56,6 +56,20 @@ h1.titulo
 	font-size: 21px;
 }
 
+#calendario_informacion
+{
+	background-color: white;
+	display: none;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 500px;
+	box-shadow: 6px 6px 0px 0px rgba(50, 50, 50, 0.75);
+	-webkit-box-shadow: 6px 6px 0px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 6px 6px 0px 0px rgba(50, 50, 50, 0.75);
+}
+
+
 .volver{
 	color: #0078d9 !important; 
 	font-size: 11px !important; 

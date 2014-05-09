@@ -25,28 +25,66 @@
     <tbody>
         <tr ng-repeat="item in dias_habitaciones.habitaciones_estado" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
           <td class="habitacion"> {{ item.habitacion.nombre }} </td>
-          <td ng-class="set_class(item.dias_estado[0].libre)">
-            <span ng-if="!item.dias_estado[0].libre">{{ item.dias_estado[0].descripcion }}</span>
+          <td ng-class="set_class(item.dias_estado[0].libre)" ng-mouseover="mostrar_informacion(item, 0)" ng-mouseout="ocultar_informacion()">
           </td>
-          <td ng-class="set_class(item.dias_estado[1].libre)">
-            <span ng-if="!item.dias_estado[1].libre">{{ item.dias_estado[1].descripcion }}</span>
+          <td ng-class="set_class(item.dias_estado[1].libre)" ng-mouseover="mostrar_informacion(item, 1)" ng-mouseout="ocultar_informacion()">
           </td>
-          <td ng-class="set_class(item.dias_estado[2].libre)">
-            <span ng-if="!item.dias_estado[2].libre">{{ item.dias_estado[2].descripcion }}</span>
+          <td ng-class="set_class(item.dias_estado[2].libre)" ng-mouseover="mostrar_informacion(item, 2)" ng-mouseout="ocultar_informacion()">
           </td>
-          <td ng-class="set_class(item.dias_estado[3].libre)">
-            <span ng-if="!item.dias_estado[3].libre">{{ item.dias_estado[3].descripcion }}</span>
+          <td ng-class="set_class(item.dias_estado[3].libre)" ng-mouseover="mostrar_informacion(item, 3)" ng-mouseout="ocultar_informacion()">
           </td>
-          <td ng-class="set_class(item.dias_estado[4].libre)">
-            <span ng-if="!item.dias_estado[4].libre">{{ item.dias_estado[4].descripcion }}</span>
+          <td ng-class="set_class(item.dias_estado[4].libre)" ng-mouseover="mostrar_informacion(item, 4)" ng-mouseout="ocultar_informacion()">
           </td>
-          <td ng-class="set_class(item.dias_estado[5].libre)">
-            <span ng-if="!item.dias_estado[5].libre">{{ item.dias_estado[5].descripcion }}</span>
+          <td ng-class="set_class(item.dias_estado[5].libre)" ng-mouseover="mostrar_informacion(item, 5)" ng-mouseout="ocultar_informacion()">
           </td>
-          <td ng-class="set_class(item.dias_estado[6].libre)">
-            <span ng-if="!item.dias_estado[6].libre">{{ item.dias_estado[6].descripcion }}</span>
+          <td ng-class="set_class(item.dias_estado[6].libre)" ng-mouseover="mostrar_informacion(item, 6)" ng-mouseout="ocultar_informacion()">
           </td>
         </tr>
     </tbody>
   </table>
+
+  <div id="calendario_informacion">
+    <table class="table">
+      <tr>
+        <td><strong>Fecha inicio estadia:</strong></td>
+        <td>{{ reserva.fecha_inicio_estadia | date:'dd MMM, yyyy HH:mm' }}</td>
+      </tr>
+      <tr>
+        <td><strong>Fecha fin estadia:</strong></td>
+        <td>{{ reserva.fecha_fin_estadia | date:'dd MMM, yyyy HH:mm' }}</td>
+      </tr>
+      <tr>
+        <td><strong>Tipo reserva:</strong></td>
+        <td>{{ reserva.tipo_reserva }}</td>
+      </tr>
+      <tr>
+        <td><strong>Cliente:</strong></td>
+        <td>{{ reserva.cliente.nombre }}</td>
+      </tr>
+      <tr>
+        <td><strong>Habitacion:</strong></td>
+        <td>{{ reserva.habitacion.nombre }}</td>
+      </tr>
+      <tr>
+        <td><strong>Confirmacion:</strong></td>
+        <!--
+        <span ng-if="reserva.confirmada">
+            <span class="label label-success">
+              Confirmada
+            </span>
+          </span>
+          <span ng-if="!reserva.confirmada">
+            <span class="label label-warning">
+              Pendiente
+            </span>
+          </span>
+        -->
+      </tr>
+      <tr>
+        <td><strong>Comentarios:</strong></td>
+        <td>{{ reserva.comentarios }}</td>
+      </tr>
+    </table>
+  </div>
+
 </div>

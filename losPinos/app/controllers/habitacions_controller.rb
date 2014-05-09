@@ -83,9 +83,8 @@ class HabitacionsController < ApplicationController
         if Reserva.where(habitacion: habitacion).where("fecha_inicio_estadia <= ? and fecha_fin_estadia >= ?", fecha, fecha).exists?
           @libre = false
           @reserva_aux = Reserva.where(habitacion: habitacion).where("fecha_inicio_estadia <= ? and fecha_fin_estadia >= ?", fecha, fecha).first()
-          @descripcion = "#{@reserva_aux.cliente.to_s} / #{@reserva_aux.tipo_reserva.to_s}"
         end
-        @dias_estado.push({dia: fecha, libre: @libre, descripcion: @descripcion})
+        @dias_estado.push({dia: fecha, libre: @libre, reserva: @reserva_aux.to_json(include: [:cliente, :habitacion])})
 
       end
       

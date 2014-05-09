@@ -27,6 +27,7 @@ thead
 	background-color: $fondo_libre;
 	opacity: 0.7;
 	color: white;
+	min-width: 55px;
 }
 
 .ocupado
@@ -34,4 +35,5 @@ thead
 	background-color: $fondo_ocupado;
 	opacity: 0.7;
 	color: white;
+	min-width: 55px;
 }
