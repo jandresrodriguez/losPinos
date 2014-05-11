@@ -29,8 +29,7 @@
 				  </div>
 				  <div class="span11 field-box actions" style="width: 900px;">
 				    <%= f.submit "Agregar Acompaniante", class: "btn-glow primary" %>
-				    <span>OR</span>
-				    <input type="reset" value="Cancelar" class="reset" />
+				    <%= link_to "Volver", reservas_path , class: "btn btn-default volver" %>
 				  </div>
 
 				<% end %>

@@ -84,3 +84,8 @@ h1.titulo
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
+
+.brandy img{
+	height: 40px !important;
+	margin-top: 5px;
+}

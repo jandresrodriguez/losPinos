@@ -22,7 +22,7 @@
 				
 				  <div class="span12 field-box">
 				      <%= f.label :fecha_inicio_estadia %>
-				      <%= f.datetime_select :fecha_inicio_estadia, order: [:day, :month, :year], start_year:Time.now.year , end_year: Time.now.year + 10, use_month_names: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'] %>
+				      <%= f.datetime_select :fecha_inicio_estadia, order: [:day, :month, :year], start_year:Time.now.year , end_year: Time.now.year + 10, use_month_names: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'], style: "width: 100px ;" %>
 				  </div>
 				  <div class="span12 field-box">
 				    <%= f.label :fecha_fin_estadia %>
@@ -75,7 +75,6 @@
 				  <div class="span12 field-box textarea">
 				    <%= f.label :comentarios %>
 				    <%= f.text_area :comentarios, class: "span9" %>
-				    <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
 				  </div>
 				  
 
@@ -83,7 +82,6 @@
 				  </div>
 				  <div class="span11 field-box actions">
 				    <%= f.submit "Crear reserva", class: "btn-glow primary" %>
-				    <span>OR</span>
 				    <%= link_to "Volver", reservas_path , class: "btn btn-default", style: "color: #0078d9; font-size: 11px; margin-left: 5px;" %>
 				  </div>
 

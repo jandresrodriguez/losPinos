@@ -56,12 +56,10 @@
   <div class="span12 field-box textarea">
     <%= f.label :comentarios %>
     <%= f.text_area :comentarios, class: "span9" %>
-    <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
   </div>
 
   <div class="span11 field-box actions">
     <%= f.submit "Crear reserva", class: "btn-glow primary" %>
-    <span>OR</span>
     <input type="reset" value="Cancelar" class="reset" />
   </div>
 <% end %>

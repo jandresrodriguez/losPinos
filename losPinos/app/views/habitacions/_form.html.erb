@@ -32,11 +32,9 @@
     <div class="span12 field-box textarea">
         <label>Comentarios:</label>
         <%= f.text_area(:comentarios, class: "span9") %><br />
-        <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
     </div>
     <div class="span11 field-box actions">
       <%= f.submit "Crear Habitacion", class:"btn-glow primary"  %>
-        <span>OR</span>
         <%= link_to "Volver", habitacions_path , class: "btn btn-default", style: "color: #0078d9; font-size: 11px; margin-left: 5px;" %>
     </div>
 <% end %>

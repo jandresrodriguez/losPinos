@@ -42,21 +42,20 @@
     <div class="span12 field-box">
         <label>Direccion:</label>
         <div class="address-fields">
-            <%= f.text_field(:direccion, class: "span12", style: "margin-bottom: 15px;" , placeholder: "Direccion") %>
+            <%= f.text_field(:direccion, class: "span12", placeholder: "Direccion") %>
             <%= f.text_field(:ciudad_residencia, class: "span12 small", placeholder: "Ciudad") %>
             <%= f.text_field(:estado_residencia, class: "span12 small", placeholder: "Estado") %>
+            <br/>
             <%= f.text_field(:pais_residencia, class: "span12 small", placeholder: "Pais") %>
-            <%= f.text_field(:codigo_postal, class: "span12 small last", style: "margin-top: 15px;" , placeholder: "Codigo Postal") %>
+            <%= f.text_field(:codigo_postal, class: "span12 small last", placeholder: "Codigo Postal") %>
         </div>
     </div>
     <div class="span12 field-box textarea">
         <label>Comentarios:</label>
         <%= f.text_area(:comentarios, class: "span9") %><br />
-        <span class="charactersleft">90 characters remaining. Field limited to 100 characters</span>
     </div>
     <div class="span11 field-box actions">
       <%= f.submit "Crear Cliente", class:"btn-glow primary"  %>
-        <span>OR</span>
       <%= link_to "Volver", clientes_path , class: "btn btn-default volver" %>
     </div>
   </div>
