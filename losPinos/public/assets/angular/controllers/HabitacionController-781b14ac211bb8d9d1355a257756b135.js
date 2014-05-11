@@ -1,0 +1,1 @@
+(function(){App.controller("HabitacionController",["$scope","filterFilter","$http",function(t,n,i){return t.habitaciones=[],i.get("./habitacions.json").success(function(n){return t.habitaciones=n})}])}).call(this);

@@ -11,7 +11,7 @@ class ReservasController < ApplicationController
 
   # Display reservas with cliente, habitacion
   def display
-    @reservas = Reserva.all
+    @reservas = Reserva.order(fecha_inicio_estadia: :desc)
     render json: @reservas, include: [:cliente, :habitacion]
   end
 

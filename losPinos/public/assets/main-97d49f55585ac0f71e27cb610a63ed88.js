@@ -1,0 +1,1 @@
+(function(){window.App=angular.module("LosPinos",["ngResource"],["ngAnimate"])}).call(this);
