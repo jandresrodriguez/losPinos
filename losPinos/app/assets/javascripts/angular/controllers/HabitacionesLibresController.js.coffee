@@ -8,7 +8,8 @@ App.controller 'ControlHabitacionesController', ['$scope','filterFilter', '$http
 
 	#Monitoreo la posicion del cursor
 	$(document).mousemove (event) ->
-		$('#calendario_informacion').css({ top: event.pageY + 2, left: event.pageX + 2})
+		
+		$('#calendario_informacion').css({ top: event.pageY - $(window).scrollTop() + 2, left: event.pageX + $(window).scrollLeft() + 2})
 		return
 
 	$scope.avanzar_semana = () ->
