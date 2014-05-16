@@ -24,15 +24,10 @@
 	opacity:0;
 } /* terminal animations for leave */
 
-.animate-enter {
-	-webkit-transition: 1s linear all; /* Chrome */
-	transition: 1s linear all;
-	opacity: 0;
-}
- 
-.animate-enter.animate-enter-active {
-	opacity: 1;
-}
+.animate.ng-enter{
+	-webkit-animation: fadeInRight 0.5s;
+    animation: fadeInRight 0.5s;
+} 
 
 .warning{
 	background-color: #FFF380;
@@ -40,6 +35,11 @@
 
 .danger{
 	background-color: #C24641;
+}
+
+.centered{
+	text-align:center;
+	margin-top: 100px;
 }
 
 
