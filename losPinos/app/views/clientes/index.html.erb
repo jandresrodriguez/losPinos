@@ -29,12 +29,12 @@
     <tbody >
 
         <tr ng-repeat="cliente in clientes | filter: search.nombre " ng-cloak>
-          <td>{{ cliente.nombre }}</td>
-          <td>{{ cliente.apellido }}</td>
+          <td>{{ cliente.nombre | capitalize }}</td>
+          <td>{{ cliente.apellido | capitalize  }}</td>
           <td>{{ cliente.fecha_nac | date:'dd-MM-yyyy' }}</td>
-          <td>{{ cliente.nacionalidad }}</td>
+          <td>{{ cliente.nacionalidad | capitalize}}</td>
           <td>{{ cliente.documento }}</td>
-          <td>{{ cliente.documento_tipo }}</td>
+          <td>{{ cliente.documento_tipo | uppercase}}</td>
           <td>{{ cliente.comentarios }}</td>
           <td>{{ cliente.email }}</td>
           <td><a class="btn btn-mini" ng-href="/clientes/{{cliente.id}}/edit">Editar</a>

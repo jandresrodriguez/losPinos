@@ -77,7 +77,7 @@
                                     </td>
                                     <td ng-style="set_color(reserva)">{{reserva.fecha_inicio_estadia | date:'dd MMM, yyyy HH:mm'}}</td>
                                     <td ng-style="set_color(reserva)">{{reserva.fecha_fin_estadia | date:'dd MMM, yyyy HH:mm'}}</td>
-                                    <td ng-style="set_color(reserva)"> <a href="clientes/{{reserva.cliente.id}}">{{reserva.cliente.nombre}}&nbsp;{{reserva.cliente.apellido}}</a></td>
+                                    <td ng-style="set_color(reserva)"> <a href="clientes/{{reserva.cliente.id}}">{{reserva.cliente.nombre | capitalize}}&nbsp;{{reserva.cliente.apellido | capitalize}}</a></td>
                                     <td ng-style="set_color(reserva)"><a href="habitacions/{{reserva.habitacion.id}}">{{reserva.habitacion.nombre}}</a></td>
                                     <td ng-style="set_color(reserva)">{{difference(reserva)}}</td>
                                     <td><span ng-if="!reserva.confirmada">
@@ -155,7 +155,7 @@
         </tr>
         <tr>
           <td><strong>Cliente:</strong></td>
-          <td>{{ selectedReserva.cliente.nombre }}</td>
+          <td>{{ selectedReserva.cliente.nombre | capitalize }}&nbsp;{{selectedReserva.cliente.apellido | capitalize}}</td>
         </tr>
         <tr>
           <td><strong>Habitacion:</strong></td>

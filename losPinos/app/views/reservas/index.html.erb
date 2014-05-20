@@ -53,7 +53,7 @@
           <span ng-if="!reserva.abonada">No abonada</span>
         </td>
         <td>{{ reserva.forma_de_pago }}</td>
-        <td><a href="clientes/{{reserva.cliente.id}}">{{reserva.cliente.nombre}}&nbsp;{{reserva.cliente.apellido}}</a></td>
+        <td><a href="clientes/{{reserva.cliente.id}}">{{reserva.cliente.nombre | capitalize}}&nbsp;{{reserva.cliente.apellido | capitalize}}</a></td>
         <td> <a href="habitacions/{{reserva.habitacion.id}}">{{ reserva.habitacion.nombre }}</a></td>
         <td>{{ reserva.comentarios }}</td>
         <td>
