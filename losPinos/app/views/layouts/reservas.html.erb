@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html ng-app="LosPinos">
 <head>
-    <title>Los Pinos - Home</title>
+    <title>Los Pinos - Reservas</title>
       <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
       <%= csrf_meta_tags %>
       <%= favicon_link_tag 'icono_pinos.ico' %>
@@ -42,40 +42,7 @@
     <!-- knob -->
     <script src="/assets/js/jquery.knob.js"></script>
 
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('.chosen-select').trigger("chosen:updated");
-        $("#cliente_form").hide();
-        $("#con_cliente").bind('change', function(){
-            if($(this).is(':checked')){
-                $("#cliente_form").show("blind");
-            }
-            else{
-                $("#cliente_form").hide("blind");
-            }
-        });
-      });
-    </script>
-
-    <script type="text/javascript">
-        function icheck(){
-          if($(".icheck-me").length > 0){
-            $(".icheck-me").each(function(){
-              var $el = $(this);
-              var skin = ($el.attr('data-skin') !== undefined) ? "_" + $el.attr('data-skin') : "",
-              color = ($el.attr('data-color') !== undefined) ? "-" + $el.attr('data-color') : "";
-              var opt = {
-                checkboxClass: 'icheckbox' + skin + color,
-                radioClass: 'iradio' + skin + color,
-              }
-              $el.iCheck(opt);
-            });
-          }
-        }
-        $(function(){
-          icheck();
-        })
-    </script>
+    
 
 
     <!-- open sans font -->
@@ -208,6 +175,41 @@
         </div>
     </div>
     <script src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.chosen-select').trigger("chosen:updated");
+        $("#cliente_form").hide();
+        $("#con_cliente").bind('change', function(){
+            if($(this).is(':checked')){
+                $("#cliente_form").show("blind");
+            }
+            else{
+                $("#cliente_form").hide("blind");
+            }
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+        function icheck(){
+          if($(".icheck-me").length > 0){
+            $(".icheck-me").each(function(){
+              var $el = $(this);
+              var skin = ($el.attr('data-skin') !== undefined) ? "_" + $el.attr('data-skin') : "",
+              color = ($el.attr('data-color') !== undefined) ? "-" + $el.attr('data-color') : "";
+              var opt = {
+                checkboxClass: 'icheckbox' + skin + color,
+                radioClass: 'iradio' + skin + color,
+              }
+              $el.iCheck(opt);
+            });
+          }
+        }
+
+        $(document).ready(function(){
+          icheck();
+        });
+    </script>
     
 </body>
 

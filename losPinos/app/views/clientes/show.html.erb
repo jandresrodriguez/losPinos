@@ -11,12 +11,12 @@
 
 <tr>
   <td><strong>Nombre:</strong></td>
-  <td><%= @cliente.nombre %></td>
+  <td><%= @cliente.nombre.capitalize %></td>
 </tr>
 
 <tr>
   <td><strong>Apellido:</strong></td>
-  <td><%= @cliente.apellido %></td>
+  <td><%= @cliente.apellido.capitalize  %></td>
 </tr>
 
 <tr>
@@ -49,7 +49,7 @@
   <td><%= @cliente.email %></td>
 </tr>
 </table>
-<%= link_to "Volver", clientes_path , class: "btn btn-default volver"%>
+<%= link_to_function "Volver", "history.back()" , class: "btn btn-default volver"%>
       </div>
     </div>
   </div>

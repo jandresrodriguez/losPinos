@@ -17,7 +17,13 @@ class StaticPagesController < ApplicationController
 		@ventas_mes = 0
 		@reservas_mes.each do |reserva|
 			if reserva.monto
-				@ventas_mes+=reserva.monto
+				if reserva.moneda == "Peso"
+					@ventas_mes+= (reserva.monto / 23)
+				elsif reserva.moneda == "Euro"
+					@ventas_mes+= (reserva.monto*1.37)
+				else
+					@ventas_mes+= reserva.monto
+				end
 			end
 		end
 	end

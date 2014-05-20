@@ -37,7 +37,11 @@
 
 <tr>
   <td><strong>Abonada:</strong></td>
-  <td><%= @reserva.abonada %></td>
+  <% if @reserva.abonada%>
+    <td>Si</td>
+  <%else%>
+    <td>No</td>
+  <%end%>
 </tr>
 
 <tr>
@@ -52,7 +56,7 @@
 
 <tr>
   <td><strong>Cliente:</strong></td>
-  <td><%= @reserva.cliente %></td>
+  <td><%= @reserva.cliente.capitalize %></td>
 </tr>
 
 <tr>
@@ -99,7 +103,7 @@
 </tr>
 
 </table>
-<%= link_to "Volver", reservas_path , class: "btn btn-default volver" %>
+<%= link_to_function "Volver", "history.back()" , class: "btn btn-default volver" %>
       </div>
 
     </div>

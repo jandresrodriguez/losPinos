@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.span12 input, textarea{
+#nombre-input, #email-input, #contact_message{
 	width: 300px !important;
 }
 
-textarea{
+#contact_message{
 	height: 150px !important;
 }
 
