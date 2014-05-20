@@ -26,3 +26,9 @@ en:
   errors:
     messages:
       blank: "no puede quedar vacio."
+
+en:
+  helpers:
+    submit:
+      create: "Crear %{model}"
+      update: "Guardar %{model}"

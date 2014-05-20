@@ -19,19 +19,20 @@
     <%= f.date_select :fecha , order: [:day, :month, :year], start_year: Time.now.year - 10, end_year: Time.now.year , use_month_names: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']%> <br />
   </div>
   <div class="span12 field-box">
-    <label>Monto:</label>
-    <%= f.text_field(:monto, class: "span9") %><br />
-  </div>  
-  <div class="span12 field-box">
-    <label>Moneda:</label>
-    <%= f.text_field(:moneda, class: "span9") %><br />
-  </div> 
+    <label> Pago </label>
+    <div class="address-fields">
+      <div style="margin-bottom:15px">
+        <%= f.select(:moneda, ['Peso', 'Dolar', 'Euro'], class: "span6") %>
+            <%= f.number_field(:monto, class: "span6", style: "margin-bottom:0px", placeholder: "Monto") %> 
+      </div>
+    </div>
+  </div>
   <div class="span12 field-box textarea">
       <label>Comentarios:</label>
       <%= f.text_area(:comentarios, class: "span9") %><br />
   </div>
   <div class="span11 field-box actions">
-    <%= f.submit "Ingresar Gasto", class:"btn-glow primary"  %>
+    <%= f.submit nil, class:"btn-glow primary"  %>
      <%= link_to "Volver", gastos_path , class: "btn btn-default", style: "color: #0078d9; font-size: 11px; margin-left: 5px;" %>
   </div>
   </div>

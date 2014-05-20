@@ -26,7 +26,7 @@
 				  </div>
 				  <div class="span12 field-box">
 				    <%= f.label :fecha_fin_estadia %>
-				    <%= f.datetime_select :fecha_fin_estadia, order: [:day, :month, :year], start_year:Time.now.year , end_year: Time.now.year + 10, use_month_names: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'] %>
+				    <%= f.datetime_select :fecha_fin_estadia, order: [:day, :month, :year], start_year:Time.now.year , end_year: Time.now.year + 10,  use_month_names: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'], default: { hour: 10, minute: 00 } %>
 				  </div>
 
 				  <div class="span12 field-box">

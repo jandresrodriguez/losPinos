@@ -3,7 +3,7 @@
 <div class="col-xs-6">
   <div class="right-inner-addon">
     <i class="icon-search"></i>
-    <input ng-model="search.nombre" type="search"
+    <input ng-model="searchText" type="search"
                class="form-control" 
                placeholder="Buscar" />
   </div>
@@ -29,7 +29,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="reserva in reservas | filter: search.nombre" ng-cloak>
+      <tr ng-repeat="reserva in reservas | filter: searchText" ng-cloak>
         <!--filter: {habitacion.nombre: search.nombre }-->
         <td>
           <span ng-if="reserva.confirmada">
