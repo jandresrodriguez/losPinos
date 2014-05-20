@@ -24,6 +24,9 @@ class ClientesController < ApplicationController
   # POST /clientes
   # POST /clientes.json
   def create
+    params[:cliente][:nombre] = params[:cliente][:nombre].capitalize 
+    params[:cliente][:apellido] = params[:cliente][:apellido].capitalize
+    params[:cliente][:nacionalidad] = params[:cliente][:nacionalidad].capitalize
     @cliente = Cliente.new(cliente_params)
 
     respond_to do |format|

@@ -42,4 +42,11 @@
 	margin-top: 100px;
 }
 
+.hovered{
+	text-decoration: none !important;
+}
+
+a.hovered:hover{
+	text-decoration: underline !important;
+}
 

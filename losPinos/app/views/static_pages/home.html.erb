@@ -77,13 +77,13 @@
                                     </td>
                                     <td ng-style="set_color(reserva)">{{reserva.fecha_inicio_estadia | date:'dd MMM, yyyy HH:mm'}}</td>
                                     <td ng-style="set_color(reserva)">{{reserva.fecha_fin_estadia | date:'dd MMM, yyyy HH:mm'}}</td>
-                                    <td ng-style="set_color(reserva)"> <a href="clientes/{{reserva.cliente.id}}">{{reserva.cliente.nombre | capitalize}}&nbsp;{{reserva.cliente.apellido | capitalize}}</a></td>
-                                    <td ng-style="set_color(reserva)"><a href="habitacions/{{reserva.habitacion.id}}">{{reserva.habitacion.nombre}}</a></td>
+                                    <td ng-style="set_color(reserva)"> <a class="hovered" ng-href="/clientes/{{reserva.cliente.id}}" target="_self"  ng-style="set_color(reserva)">{{reserva.cliente.nombre}}&nbsp;{{reserva.cliente.apellido}}</a></td>
+                                    <td ng-style="set_color(reserva)"><a class="hovered" ng-href="/habitacions/{{reserva.habitacion.id}}" target="_self" ng-style="set_color(reserva)">{{reserva.habitacion.nombre}}</a></td>
                                     <td ng-style="set_color(reserva)">{{difference(reserva)}}</td>
                                     <td><span ng-if="!reserva.confirmada">
                                           <a class="btn btn-mini btn-success" ng-click="update1(reserva)">Confirmar</a>
                                         </span>
-                                        <a class="btn btn-mini" ng-href="/reservas/{{reserva.id}}" style="text-decoration: none;">Ver</a>
+                                        <a class="btn btn-mini" ng-href="/reservas/{{reserva.id}}" style="text-decoration: none;" target="_self">Ver</a>
                                     </td>
                                   </tr>
                               </tbody>
@@ -155,7 +155,7 @@
         </tr>
         <tr>
           <td><strong>Cliente:</strong></td>
-          <td>{{ selectedReserva.cliente.nombre | capitalize }}&nbsp;{{selectedReserva.cliente.apellido | capitalize}}</td>
+          <td>{{ selectedReserva.cliente.nombre }}&nbsp;{{selectedReserva.cliente.apellido }}</td>
         </tr>
         <tr>
           <td><strong>Habitacion:</strong></td>

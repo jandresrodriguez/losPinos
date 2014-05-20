@@ -29,10 +29,10 @@
     <tbody >
 
         <tr ng-repeat="cliente in clientes | filter: search.nombre " ng-cloak>
-          <td>{{ cliente.nombre | capitalize }}</td>
-          <td>{{ cliente.apellido | capitalize  }}</td>
+          <td>{{ cliente.nombre }}</td>
+          <td>{{ cliente.apellido   }}</td>
           <td>{{ cliente.fecha_nac | date:'dd-MM-yyyy' }}</td>
-          <td>{{ cliente.nacionalidad | capitalize}}</td>
+          <td>{{ cliente.nacionalidad}}</td>
           <td>{{ cliente.documento }}</td>
           <td>{{ cliente.documento_tipo | uppercase}}</td>
           <td>{{ cliente.comentarios }}</td>
