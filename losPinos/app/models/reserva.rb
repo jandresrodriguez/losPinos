@@ -17,6 +17,10 @@ class Reserva < ActiveRecord::Base
   validates :cliente, presence: true, allow_blank: false
   validates :habitacion, presence: true, allow_blank: false
  
+  validate do |reserva|
+    ReservaValidate.new(reserva).validate
+  end
+
   def fechas_coherentes
   	if fecha_inicio_estadia>=fecha_fin_estadia
   		errors[:base] << "La fecha de fin no puede ser antes que la de inicio."
@@ -34,9 +38,9 @@ class ReservaValidate < ActiveModel::Validator
 
 	def validate
 		# Validacion para que la reserva sea correcta
-		(@reserva.fecha_inicio_estadia .. @reserva.fecha_fin_estadia).each do |fecha|
+		(@reserva.fecha_inicio_estadia.to_date .. @reserva.fecha_fin_estadia.to_date).each do |fecha|
 			# Recorro las fechas del rango marcado y controlo si hay alguna reserva para el mismo
-			if Reserva.where("fecha_inicio_estadia <= ? and fecha_fin_estadia >= ? and habitacion_id == ?", fecha, fecha, @reserva.habitacion).exists?
+			if Reserva.where("date(fecha_inicio_estadia) <= ? and date(fecha_fin_estadia) > ? and habitacion_id == ?", fecha.to_date, fecha.to_date, @reserva.habitacion).exists?
 				@reserva.errors[:base] << "La habitacion esta ocupada."
 				return # Retorno porque no hay que seguir si encontre error
 			end

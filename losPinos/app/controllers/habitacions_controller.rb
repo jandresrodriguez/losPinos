@@ -80,9 +80,10 @@ class HabitacionsController < ApplicationController
       (@diaInicioSemana .. @diaFinSemana).each do |fecha|
 
         @libre = true
-        if Reserva.where(habitacion: habitacion).where("fecha_inicio_estadia <= ? and fecha_fin_estadia >= ?", fecha, fecha).exists?
+        # El dia de fin de estadia no se considera porque sale a las 10 de la mañana y la habitacion queda libre
+        if Reserva.where(habitacion: habitacion).where("date(fecha_inicio_estadia) <= ? and date(fecha_fin_estadia) > ?", fecha.to_date, fecha.to_date).exists?
           @libre = false
-          @reserva_aux = Reserva.where(habitacion: habitacion).where("fecha_inicio_estadia <= ? and fecha_fin_estadia >= ?", fecha, fecha).first()
+          @reserva_aux = Reserva.where(habitacion: habitacion).where("date(fecha_inicio_estadia) <= ? and date(fecha_fin_estadia) > ?", fecha.to_date, fecha.to_date).first()
         end
         @dias_estado.push({dia: fecha, libre: @libre, reserva: @reserva_aux.to_json(include: [:cliente, :habitacion])})
 
