@@ -27,6 +27,7 @@ class ReservasController < ApplicationController
 
   # GET /reservas/1/edit
   def edit
+    @reserva = Reserva.find(params[:id])
   end
 
   # POST /reservas
@@ -66,7 +67,24 @@ class ReservasController < ApplicationController
   # PATCH/PUT /reservas/1.json
   def update
     respond_to do |format|
-      
+      puts "HACE ALGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+      if !params[:reserva][:tipo_reserva].blank?
+        @tipo_reserva = TipoReserva.find(params[:reserva][:tipo_reserva])
+        @reserva.tipo_reserva = @tipo_reserva
+      end
+
+      if !params[:reserva][:habitacion].blank?
+        @habitacion = Habitacion.find(params[:reserva][:habitacion])
+        @reserva.habitacion = @habitacion
+      end
+
+      if !params[:reserva][:cliente].blank?
+        @cliente = Cliente.find(params[:reserva][:cliente])
+        @reserva.cliente = @cliente
+      end
+      if !params[:reserva][:confirmada].blank?
+        @reserva.confirmada = params[:reserva][:confirmada]
+      end
       if @reserva.update(reserva_params)
         format.html { redirect_to reservas_url, notice: 'Reserva modificada con exito.' }
         format.json { head :no_content }
@@ -135,7 +153,6 @@ class ReservasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def reserva_params
       params.require(:reserva).permit( :id, :created_at, :updated_at,  :fehca_creacion, :fecha_inicio_estadia, :fecha_fin_estadia, :monto, :confirmada, :moneda, :abonada, 
-        :forma_de_pago, :tipo_reserva_id, :cliente_id, :habitacion_id, :comentarios, clientes_attributes: [:id, :name],
-        cliente: [:nombre, :apellido, :fecha_nac, :nacionalidad, :documento, :documento_tipo, :comentarios, :email])
+        :forma_de_pago, :tipo_reserva_id, :cliente_id, :habitacion_id, :comentarios)
     end
 end
