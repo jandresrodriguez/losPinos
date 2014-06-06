@@ -79,9 +79,7 @@ class ReservasController < ApplicationController
 
   def updateReservas
     @reserva = Reserva.find(params[:id])
-    puts "RESERVAAAA   #{@reserva.id} #{@reserva.confirmada} #{params[:confirmada]}"
     @reserva.confirmada = params[:confirmada]
-    puts "RESERVAAAA 222222222222222   #{@reserva.id} #{@reserva.confirmada}"
     Reserva.update(@reserva.id, confirmada: @reserva.confirmada)
     respond_to do |format|
       format.html { redirect_to reservas_url }

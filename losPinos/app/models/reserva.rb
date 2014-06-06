@@ -40,7 +40,7 @@ class ReservaValidate < ActiveModel::Validator
 		# Validacion para que la reserva sea correcta
 		(@reserva.fecha_inicio_estadia.to_date .. @reserva.fecha_fin_estadia.to_date).each do |fecha|
 			# Recorro las fechas del rango marcado y controlo si hay alguna reserva para el mismo
-			if Reserva.where("date(fecha_inicio_estadia) <= ? and date(fecha_fin_estadia) > ? and habitacion_id == ?", fecha.to_date, fecha.to_date, @reserva.habitacion).exists?
+			if Reserva.where("date(fecha_inicio_estadia) <= ? and date(fecha_fin_estadia) > ? and habitacion_id = ?", fecha.to_date, fecha.to_date, @reserva.habitacion).exists?
 				@reserva.errors[:base] << "La habitacion esta ocupada."
 				return # Retorno porque no hay que seguir si encontre error
 			end

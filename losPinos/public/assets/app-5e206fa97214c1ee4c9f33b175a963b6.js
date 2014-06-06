@@ -1,0 +1,1 @@
+(function(){window.App=angular.module("LosPinos",["ngResource"]).config(["$locationProvider",function(o){return o.html5Mode(!0)}])}).call(this);
